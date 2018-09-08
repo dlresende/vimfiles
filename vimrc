@@ -9,3 +9,6 @@ syntax on
 
 " Enable loading the plugin files for specific file types
 filetype plugin indent on
+
+" NERDTree shortcuts
+map \ :NERDTreeToggle<CR>
