@@ -24,3 +24,6 @@ let g:solarized_termtrans=1
 colorscheme solarized
 set guifont=Inconsolata:h15
 set guioptions-=L
+
+" Configure vim-markdown
+set conceallevel=2
