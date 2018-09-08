@@ -4,11 +4,23 @@ runtime bundle/vim-pathogen/autoload/pathogen.vim
 " Let Pathogen manage plugins
 execute pathogen#infect()
 
-" Turn on color syntax highlighting
-syntax on
-
 " Enable loading the plugin files for specific file types
 filetype plugin indent on
 
 " NERDTree shortcuts
 map \ :NERDTreeToggle<CR>
+
+" Configure vim-colors-solarized
+syntax enable
+if has('gui_running')
+  set transparency=3
+  " fix js regex syntax
+  set regexpengine=1
+  syntax enable
+endif
+set background=dark
+let g:solarized_termcolors=256
+let g:solarized_termtrans=1
+colorscheme solarized
+set guifont=Inconsolata:h15
+set guioptions-=L
