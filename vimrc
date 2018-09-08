@@ -10,7 +10,7 @@ filetype plugin indent on
 " NERDTree shortcuts
 map \ :NERDTreeToggle<CR>
 
-" Configure vim-colors-solarized
+" vim-colors-solarized
 syntax enable
 if has('gui_running')
   set transparency=3
@@ -25,5 +25,8 @@ colorscheme solarized
 set guifont=Inconsolata:h15
 set guioptions-=L
 
-" Configure vim-markdown
+" vim-markdown
 set conceallevel=2
+
+" disable folding
+let g:vim_markdown_folding_disabled = 1
