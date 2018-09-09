@@ -4,9 +4,6 @@ runtime bundle/vim-pathogen/autoload/pathogen.vim
 " Let Pathogen manage plugins
 execute pathogen#infect()
 
-" Enable loading the plugin files for specific file types
-filetype plugin indent on
-
 " NERDTree shortcuts
 map \ :NERDTreeToggle<CR>
 
