@@ -4,6 +4,13 @@ runtime bundle/vim-pathogen/autoload/pathogen.vim
 " Let Pathogen manage plugins
 execute pathogen#infect()
 
+" show existing tab with 4 spaces width
+set tabstop=4
+" when indenting with '>', use 4 spaces width
+set shiftwidth=4
+" On pressing tab, insert 4 spaces
+set expandtab
+
 " NERDTree shortcuts
 map \ :NERDTreeToggle<CR>
 
