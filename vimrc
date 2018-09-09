@@ -1,6 +1,9 @@
 " Treat Pathogen as a plugin and read from .vim/bundle/ instead of .vim/autoload/
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 
+" Where all the shortcuts live
+runtime! config/bindings.vim
+
 " Let Pathogen manage plugins
 execute pathogen#infect()
 
@@ -10,12 +13,6 @@ set tabstop=4
 set shiftwidth=4
 " On pressing tab, insert 4 spaces
 set expandtab
-
-" NERDTree shortcuts
-map \ :NERDTreeToggle<CR>
-
-" Save by pressing <enter>
-nnoremap <silent> <cr> :w<cr>
 
 " vim-colors-solarized
 syntax enable
@@ -40,19 +37,3 @@ let g:vim_markdown_folding_disabled = 1
 
 " vim-javacomplete2
 autocmd FileType java setlocal omnifunc=javacomplete#Complete
-
-" To enable smart (trying to guess import option) inserting class imports with F4, add:
-nmap <F4> <Plug>(JavaComplete-Imports-AddSmart)
-imap <F4> <Plug>(JavaComplete-Imports-AddSmart)
-
-" To enable usual (will ask for import option) inserting class imports with F5, add:
-nmap <F5> <Plug>(JavaComplete-Imports-Add)
-imap <F5> <Plug>(JavaComplete-Imports-Add)
-
-" To add all missing imports with F6:
-nmap <F6> <Plug>(JavaComplete-Imports-AddMissing)
-imap <F6> <Plug>(JavaComplete-Imports-AddMissing)
-
-" To remove all unused imports with F7:
-nmap <F7> <Plug>(JavaComplete-Imports-RemoveUnused)
-imap <F7> <Plug>(JavaComplete-Imports-RemoveUnused)
