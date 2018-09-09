@@ -14,6 +14,9 @@ set expandtab
 " NERDTree shortcuts
 map \ :NERDTreeToggle<CR>
 
+" Save by pressing <enter>
+nnoremap <silent> <cr> :w<cr>
+
 " vim-colors-solarized
 syntax enable
 if has('gui_running')
