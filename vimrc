@@ -37,3 +37,12 @@ let g:vim_markdown_folding_disabled = 1
 
 " vim-javacomplete2
 autocmd FileType java setlocal omnifunc=javacomplete#Complete
+
+" Other {{{
+vnoremap < <gv
+vnoremap > >gv
+" make Y consistent with C and D. See :help Y.
+nnoremap Y y$
+" Y in visual mode copies to system clipboard
+vmap Y "+y
+" }}}
