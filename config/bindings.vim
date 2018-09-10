@@ -43,3 +43,6 @@ imap <F6> <Plug>(JavaComplete-Imports-AddMissing)
 " To remove all unused imports with F7:
 nmap <F7> <Plug>(JavaComplete-Imports-RemoveUnused)
 imap <F7> <Plug>(JavaComplete-Imports-RemoveUnused)
+
+" Disable highlight until next search
+nnoremap <silent> <space> :noh<cr>
