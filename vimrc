@@ -1,41 +1,29 @@
 " Treat Pathogen as a plugin and read from .vim/bundle/ instead of .vim/autoload/
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 
-" Where all the shortcuts live
-runtime! config/bindings.vim
-
 " Let Pathogen manage plugins
 execute pathogen#infect()
 
-" show existing tab with 2 spaces width
-set tabstop=2
-" when indenting with '>', use 2 spaces width
-set shiftwidth=2
-" On pressing tab, insert 2 spaces
-set expandtab
+runtime! config/bindings.vim  " Load shortcuts
 
-" vim-colors-solarized
+set tabstop=2     " show existing tab with 2 spaces width
+set shiftwidth=2  " when indenting with '>', use 2 spaces width
+set expandtab     " on pressing tab, insert 2 spaces
+
+""" vim-colors-solarized
+""" https://github.com/altercation/solarized/tree/master/vim-colors-solarized
 syntax enable
-if has('gui_running')
-  set transparency=3
-  " fix js regex syntax
-  set regexpengine=1
-  syntax enable
-endif
 set background=dark
-let g:solarized_termcolors=256
-let g:solarized_termtrans=1
+let g:solarized_contrast="normal" " Use 'high' to toggle the presentation mode
 colorscheme solarized
-set guifont=Inconsolata:h15
-set guioptions-=L
 
-" vim-markdown
-set conceallevel=2
+""" vim-markdown
+""" https://github.com/plasticboy/vim-markdown#basic-usage
+set conceallevel=2                      " concealed text is completely hidden
+let g:vim_markdown_folding_disabled = 1 " disable folding
 
-" disable folding
-let g:vim_markdown_folding_disabled = 1
-
-" vim-javacomplete2
+""" vim-javacomplete2
+""" https://github.com/artur-shaik/vim-javacomplete2#configuration
 autocmd FileType java setlocal omnifunc=javacomplete#Complete
 
 " Other {{{
