@@ -75,3 +75,11 @@ vmap Y "+y
 " tagbar {{{
   nmap <F8> :TagbarToggle<CR>
 " }}}
+
+
+" vim-better-whitespace {{{
+  nmap <leader>s :StripWhitespace<CR>
+  nmap <leader><space> :ToggleWhitespace<CR>
+  nnoremap ]w :NextTrailingWhitespace<CR>
+  nnoremap [w :PrevTrailingWhitespace<CR>
+" }}}
