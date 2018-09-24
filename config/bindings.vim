@@ -36,7 +36,8 @@ vmap Y "+y
 
 
 " nerdtree {{{
-  map \ :NERDTreeToggle<CR>
+  map \       :NERDTreeToggle<CR>
+	nnoremap \| :NERDTreeFind<CR>
 " }}}
 
 
