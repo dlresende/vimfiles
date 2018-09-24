@@ -70,3 +70,8 @@ vmap Y "+y
   let g:multi_cursor_skip_key            = '<C-x>'
   let g:multi_cursor_quit_key            = '<Esc>'
 " }}}
+
+
+" tagbar {{{
+  nmap <F8> :TagbarToggle<CR>
+" }}}
