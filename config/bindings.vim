@@ -113,3 +113,11 @@ vmap Y "+y
   map gx <Plug>Markdown_OpenUrlUnderCursor
   map ge <Plug>Markdown_EditUrlUnderCursor
 " }}}
+
+
+" tabularize {{{
+  nmap <leader>t= :Tabularize /=<CR>
+  vmap <leader>t= :Tabularize /=<CR>
+  nmap <leader>t: :Tabularize /:\zs<CR>
+  vmap <leader>t: :Tabularize /:\zs<CR>
+" }}}
