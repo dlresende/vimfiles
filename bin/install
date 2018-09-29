@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+set -eu -o pipefail
+
+main() {
+  echo "Installing tools required by vim-go..."
+  nvim --headless +'GoUpdateBinaries' +'qall!'
+}
+
+main

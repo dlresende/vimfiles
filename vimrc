@@ -70,3 +70,29 @@ set conceallevel=2 " concealed text is completely hidden
   let g:show_spaces_that_precede_tabs=0 " highlight space characters that appear before or in-between tabs
   let g:better_whitespace_skip_empty_lines=0 " ignore lines that contain only whitespace
 " }}}
+
+
+" vim-go {{{
+  let g:go_fmt_command = "goimports" " goimports will format import declarations on save
+  let g:go_textobj_include_function_doc = 1 " treat comments as part of a function (e.g. `vaf`)
+  let g:go_fmt_fail_silently = 0 " do not show errors when parsing the file on save
+  let g:go_addtags_transform = "camelcase" " case it should apply while converting: snake_case, snake_case
+  let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck'] " tools used by gometalinter
+  let g:go_metalinter_autosave = 1
+  let g:go_metalinter_autosave_enabled = ['vet', 'golint', 'errcheck']
+  let g:go_metalinter_deadline = "5s"
+  let g:go_def_mode = 'guru' " use 'guru' of 'godef' to go to definition
+  let g:go_decls_includes = "func,type" " what :GoDecls and :GoDeclsDir should show
+  let g:go_auto_type_info = 1 " automatically run :GoInfo whenever you move your cursor (default `set updatetime=800`)
+  let g:go_auto_sameids = 0 " automatically run :GoSameIds
+
+  " Enable extended highlighting
+  let g:go_highlight_types = 0
+  let g:go_highlight_fields = 0
+  let g:go_highlight_functions = 0
+  let g:go_highlight_function_calls = 0
+  let g:go_highlight_operators = 0
+  let g:go_highlight_extra_types = 0
+  let g:go_highlight_build_constraints = 0
+  let g:go_highlight_generate_tags = 0
+" }}}
