@@ -6,12 +6,14 @@ main() {
   check_dependencies \
     nvim \
     pip \
+    cabal \
 
   echo "Installing tools required by vim-go..."
   nvim --headless +'GoUpdateBinaries' +'qall!'
 
   echo "Installing tools required by ale..."
   pip install --user yamllint
+  cabal update && cabal install ShellCheck
 }
 
 check_dependencies() {

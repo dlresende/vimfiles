@@ -111,5 +111,6 @@ set conceallevel=2 " concealed text is completely hidden
   let g:ale_list_window_size = 10 " height for the error list
   let g:ale_linters = {
   \ 'yaml': ['yamllint'],
+  \ 'sh': ['shellcheck'],
   \}
 " }}}
