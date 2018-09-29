@@ -3,8 +3,25 @@
 set -eu -o pipefail
 
 main() {
+  check_dependencies \
+    nvim \
+    pip \
+
   echo "Installing tools required by vim-go..."
   nvim --headless +'GoUpdateBinaries' +'qall!'
+
+  echo "Installing tools required by ale..."
+  pip install --user yamllint
+}
+
+check_dependencies() {
+  for bin in "$@"
+  do
+    if ! command -v "$bin" > /dev/null
+    then
+      fail "$bin required, but not found in PATH."
+    fi
+  done
 }
 
 main

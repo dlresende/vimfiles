@@ -130,3 +130,9 @@ vmap Y "+y
   autocmd FileType go nmap <Leader>i <Plug>(go-info)
   autocmd FileType go nmap K <Plug>(go-doc)
 " }}}
+
+" ale {{{
+  " Navigate between errors quickly
+  nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+  nmap <silent> <C-j> <Plug>(ale_next_wrap)
+" }}}
