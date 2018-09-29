@@ -11,7 +11,7 @@ main() {
   echo "Installing tools required by vim-go..."
   nvim --headless +'GoUpdateBinaries' +'qall!'
 
-  echo "Installing tools required by ale..."
+  echo "Installing linters & fixers used by ale..."
   pip install --user yamllint
   cabal update && cabal install ShellCheck
 }
@@ -21,7 +21,8 @@ check_dependencies() {
   do
     if ! command -v "$bin" > /dev/null
     then
-      fail "$bin required, but not found in PATH."
+      echo "$bin required, but not found in PATH."
+      exit 1
     fi
   done
 }
