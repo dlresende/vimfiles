@@ -2,18 +2,43 @@
 
 set -eu -o pipefail
 
+: "${M2_HOME:="$HOME/.m2"}"
+
 main() {
   check_dependencies \
     nvim \
     pip \
     cabal \
+    mvn \
+    xmllint \
 
   echo "Installing tools required by vim-go..."
   nvim --headless +'GoUpdateBinaries' +'qall!'
 
-  echo "Installing linters & fixers used by ale..."
+  echo "Installing sh linters & fixers used by ale..."
   pip install --user yamllint
   cabal update && cabal install ShellCheck
+
+  echo "Installing java linters & fixers used by ale..."
+
+  mvn dependency:get -Dartifact=com.puppycrawl.tools:checkstyle:RELEASE
+  local checkstyle_version
+  checkstyle_version="$(xmllint --xpath '/metadata/versioning/release/text()' "$M2_HOME/repository/com/puppycrawl/tools/checkstyle/maven-metadata-central.xml")"
+  mkdir -p "$M2_HOME/bin"
+  cat <<EOF > "$M2_HOME/bin/checkstyle"
+#!/usr/bin/env bash
+
+export MAVEN_OPTS=-Dorg.slf4j.simpleLogger.defaultLogLevel=off
+
+mvn \\
+  -f "$M2_HOME/repository/com/puppycrawl/tools/checkstyle/$checkstyle_version/checkstyle-$checkstyle_version.pom" \\
+  exec:exec \\
+    -Dexec.executable="java" \\
+    -Dexec.args="-cp %classpath:$M2_HOME/repository/com/puppycrawl/tools/checkstyle/$checkstyle_version/checkstyle-$checkstyle_version.jar \\
+      com.puppycrawl.tools.checkstyle.Main \\
+      \$*"
+EOF
+  chmod +x "$M2_HOME/bin/checkstyle"
 }
 
 check_dependencies() {
@@ -27,4 +52,4 @@ check_dependencies() {
   done
 }
 
-main
+main "$@"

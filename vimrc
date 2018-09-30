@@ -113,5 +113,6 @@ set conceallevel=2 " concealed text is completely hidden
   \ 'yaml': ['yamllint'],
   \ 'sh': ['shellcheck'],
   \ 'go': ['gometalinter'],
+  \ 'java': ['javac', 'checkstyle'],
   \}
 " }}}
