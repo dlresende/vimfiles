@@ -3,6 +3,7 @@
 set -eu -o pipefail
 
 : "${M2_HOME:="$HOME/.m2"}"
+: "${TMPDIR:="$(mktemp)"}"
 
 main() {
   check_dependencies \
@@ -21,23 +22,27 @@ main() {
 
   echo "Installing java linters & fixers used by ale..."
 
-  mvn dependency:get -Dartifact=com.puppycrawl.tools:checkstyle:RELEASE
-  local checkstyle_version
-  checkstyle_version="$(xmllint --xpath '/metadata/versioning/release/text()' "$M2_HOME/repository/com/puppycrawl/tools/checkstyle/maven-metadata-central.xml")"
+  local checkstyle_version=8.12
+  wget \
+    --directory-prefix="$TMPDIR" \
+    "https://github.com/checkstyle/checkstyle/releases/download/checkstyle-${checkstyle_version}/checkstyle-${checkstyle_version}-all.jar"
+
+  mvn \
+    install:install-file \
+      -DartifactId=checkstyle \
+      -DgroupId=com.puppycrawl.tools \
+      -Dversion="$checkstyle_version" \
+      -Dclassifier=all \
+      -Dpackaging=jar \
+      -Dfile="${TMPDIR}/checkstyle-${checkstyle_version}-all.jar"
+
   mkdir -p "$M2_HOME/bin"
   cat <<EOF > "$M2_HOME/bin/checkstyle"
 #!/usr/bin/env bash
 
-export MAVEN_OPTS=-Dorg.slf4j.simpleLogger.defaultLogLevel=off
-
-mvn \\
-  -f "$M2_HOME/repository/com/puppycrawl/tools/checkstyle/$checkstyle_version/checkstyle-$checkstyle_version.pom" \\
-  exec:exec \\
-    -Dexec.executable="java" \\
-    -Dexec.args="-cp %classpath:$M2_HOME/repository/com/puppycrawl/tools/checkstyle/$checkstyle_version/checkstyle-$checkstyle_version.jar \\
-      com.puppycrawl.tools.checkstyle.Main \\
-      \$*"
+exec java -jar /Users/diego/.m2/repository/com/puppycrawl/tools/checkstyle/${checkstyle_version}/checkstyle-${checkstyle_version}-all.jar \$*
 EOF
+
   chmod +x "$M2_HOME/bin/checkstyle"
 }
 
