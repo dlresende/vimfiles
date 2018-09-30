@@ -77,13 +77,13 @@ set conceallevel=2 " concealed text is completely hidden
   let g:go_textobj_include_function_doc = 1 " treat comments as part of a function (e.g. `vaf`)
   let g:go_fmt_fail_silently = 0 " do not show errors when parsing the file on save
   let g:go_addtags_transform = "camelcase" " case it should apply while converting: snake_case, snake_case
-  let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck'] " tools used by gometalinter
-  let g:go_metalinter_autosave = 1
+  let g:go_metalinter_autosave = 0 " delegate checks to ale
   let g:go_metalinter_autosave_enabled = ['vet', 'golint', 'errcheck']
+  let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck'] " tools used by gometalinter
   let g:go_metalinter_deadline = "5s"
-  let g:go_def_mode = 'guru' " use 'guru' of 'godef' to go to definition
+  let g:go_def_mode = 'guru' " use 'guru' or 'godef' to go to definition
   let g:go_decls_includes = "func,type" " what :GoDecls and :GoDeclsDir should show
-  let g:go_auto_type_info = 1 " automatically run :GoInfo whenever you move your cursor (default `set updatetime=800`)
+  let g:go_auto_type_info = 0 " automatically run :GoInfo whenever you move your cursor (default `set updatetime=800`)
   let g:go_auto_sameids = 0 " automatically run :GoSameIds
 
   " Enable extended highlighting
@@ -101,8 +101,8 @@ set conceallevel=2 " concealed text is completely hidden
   let g:ale_linters_explicit = 1 " only run linters named in ale_linters settings
   let g:ale_warn_about_trailing_whitespace = 0 " handled by vim-better-whitespace
   let g:ale_sign_column_always = 1 " can keep the sign gutter open at all times
-  let g:ale_sign_error = '>>'
-  let g:ale_sign_warning = '--'
+  let g:ale_sign_error = '☠︎'
+  let g:ale_sign_warning = '⚠'
   let g:ale_set_highlights = 1 " disable highlighting
   let g:airline#extensions#ale#enabled = 1 " show errors or warnings in my statusline
   let g:ale_lint_on_save = 1
@@ -112,5 +112,6 @@ set conceallevel=2 " concealed text is completely hidden
   let g:ale_linters = {
   \ 'yaml': ['yamllint'],
   \ 'sh': ['shellcheck'],
+  \ 'go': ['gometalinter'],
   \}
 " }}}
