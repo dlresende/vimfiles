@@ -2,48 +2,21 @@
 
 set -eu -o pipefail
 
-: "${M2_HOME:="$HOME/.m2"}"
-: "${TMPDIR:="$(mktemp)"}"
-
 main() {
   check_dependencies \
     nvim \
-    pip \
-    cabal \
-    mvn \
-    xmllint \
 
   echo "Installing tools required by vim-go..."
   nvim --headless +'GoUpdateBinaries' +'qall!'
 
-  echo "Installing sh linters & fixers used by ale..."
-  pip install --user yamllint
-  cabal update && cabal install ShellCheck
+  echo "Check if linters are available in PATH..."
+  check_dependencies \
+    checkstyle \
+    pmd \
+    javac \
+    yamllint \
+    gometalinter \
 
-  echo "Installing java linters & fixers used by ale..."
-
-  local checkstyle_version=8.12
-  wget \
-    --directory-prefix="$TMPDIR" \
-    "https://github.com/checkstyle/checkstyle/releases/download/checkstyle-${checkstyle_version}/checkstyle-${checkstyle_version}-all.jar"
-
-  mvn \
-    install:install-file \
-      -DartifactId=checkstyle \
-      -DgroupId=com.puppycrawl.tools \
-      -Dversion="$checkstyle_version" \
-      -Dclassifier=all \
-      -Dpackaging=jar \
-      -Dfile="${TMPDIR}/checkstyle-${checkstyle_version}-all.jar"
-
-  mkdir -p "$M2_HOME/bin"
-  cat <<EOF > "$M2_HOME/bin/checkstyle"
-#!/usr/bin/env bash
-
-exec java -jar /Users/diego/.m2/repository/com/puppycrawl/tools/checkstyle/${checkstyle_version}/checkstyle-${checkstyle_version}-all.jar \$*
-EOF
-
-  chmod +x "$M2_HOME/bin/checkstyle"
 }
 
 check_dependencies() {
