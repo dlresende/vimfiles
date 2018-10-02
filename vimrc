@@ -113,6 +113,7 @@ set conceallevel=2 " concealed text is completely hidden
   \ 'yaml': ['yamllint'],
   \ 'sh': ['shellcheck'],
   \ 'go': ['gometalinter'],
-  \ 'java': ['javac', 'checkstyle'],
+  \ 'java': ['javac', 'checkstyle', 'pmd'],
   \}
+  let g:ale_java_pmd_options = 'pmd -R category/java/bestpractices.xml' " pmd installed via brew has a different api: `pmd pmd -R...`
 " }}}
