@@ -42,3 +42,9 @@ resolve-plugin-dependencies: check-dependencies update-plugins
 	@echo "Installing tools required by vim-go..."
 	@nvim --headless +'GoUpdateBinaries' +'qall!'
 	@echo "...done"
+
+.PHONY: remove-submodule
+remove-submodule:
+	git submodule deinit -f -- $(MODULE)
+	rm -fr .git/modules/$(MODULE)
+	git rm -f $(MODULE)
