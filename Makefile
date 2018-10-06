@@ -43,8 +43,8 @@ resolve-plugin-dependencies: check-dependencies update-plugins
 	@nvim --headless +'GoUpdateBinaries' +'qall!'
 	@echo "...done"
 
-.PHONY: remove-submodule
-remove-submodule:
+.PHONY: remove-plugin
+remove-plugin:
 	git submodule deinit -f -- $(MODULE)
 	rm -fr .git/modules/$(MODULE)
 	git rm -f $(MODULE)
