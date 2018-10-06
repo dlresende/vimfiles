@@ -6,6 +6,8 @@ execute pathogen#infect()
 
 runtime! config/bindings.vim  " Load shortcuts
 
+silent Helptags
+
 set expandtab      " on pressing tab, insert 2 spaces
 set tabstop=2      " show existing tab with 2 spaces width
 set shiftwidth=2   " when indenting with '>', use 2 spaces width
@@ -117,4 +119,8 @@ set conceallevel=2 " concealed text is completely hidden
   \ 'ruby': [ 'ruby', 'rubocop', 'reek'],
   \}
   let g:ale_java_pmd_options = 'pmd -R category/java/bestpractices.xml' " pmd installed via brew has a different api: `pmd pmd -R...`
+" }}}
+
+
+" ctrl.vim {{{
 " }}}
