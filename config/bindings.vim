@@ -123,6 +123,7 @@ vmap Y "+y
   vmap <leader>t: :Tabularize /:\zs<CR>
 " }}}
 
+
 " vim-go {{{
   autocmd FileType go nmap <leader>t <Plug>(go-test)
   autocmd FileType go nmap <leader>b <Plug>(go-build)
@@ -131,11 +132,13 @@ vmap Y "+y
   autocmd FileType go nmap K <Plug>(go-doc)
 " }}}
 
+
 " ale {{{
   " Navigate between errors quickly
   nmap <silent> <C-k> <Plug>(ale_previous_wrap)
   nmap <silent> <C-j> <Plug>(ale_next_wrap)
 " }}}
+
 
 " ctrlp.vim {{{
   nnoremap <leader>f :CtrlPCurWD<cr>

@@ -110,10 +110,11 @@ set conceallevel=2 " concealed text is completely hidden
   let g:ale_lint_on_enter = 0 " if you don't want linters to run on opening a file
   let g:ale_list_window_size = 10 " height for the error list
   let g:ale_linters = {
-  \ 'yaml': ['yamllint'],
-  \ 'sh': ['shellcheck'],
-  \ 'go': ['gometalinter'],
-  \ 'java': ['javac', 'checkstyle', 'pmd'],
+  \ 'yaml': [ 'yamllint'],
+  \ 'sh':   [ 'shellcheck'],
+  \ 'go':   [ 'gometalinter'],
+  \ 'java': [ 'javac', 'checkstyle', 'pmd'],
+  \ 'ruby': [ 'ruby', 'rubocop', 'reek'],
   \}
   let g:ale_java_pmd_options = 'pmd -R category/java/bestpractices.xml' " pmd installed via brew has a different api: `pmd pmd -R...`
 " }}}
