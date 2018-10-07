@@ -114,10 +114,14 @@ set conceallevel=2 " concealed text is completely hidden
   let g:ale_linters = {
   \ 'yaml': [ 'yamllint'],
   \ 'sh':   [ 'shellcheck'],
-  \ 'go':   [ 'gometalinter'],
+  \ 'go':   [ 'gometalinter', 'gobuild'],
   \ 'java': [ 'javac', 'checkstyle', 'pmd'],
   \ 'ruby': [ 'ruby', 'rubocop', 'reek'],
   \}
+  let g:ale_go_gometalinter_options = 
+        \ '--vendor ' .
+        \ '--fast ' .
+        \ '--exclude=\"\bexported \\w+ (\\S*[''.]*)([a-zA-Z''.*]*) should have comment or be unexported\b\"'
   let g:ale_java_pmd_options = 'pmd -R category/java/bestpractices.xml' " pmd installed via brew has a different api: `pmd pmd -R...`
 " }}}
 

@@ -4,7 +4,7 @@ XDG_CONFIG_HOME := $(HOME)/.config
 help:
 	@sed -n -E "s/^\.PHONY:[[:space:]]+(.*)$$/\1/p" Makefile
 
-ale_listers = checkstyle pmd javac yamllint gometalinter
+ale_listers = checkstyle pmd javac yamllint gometalinter go
 dependencies = nvim
 dependencies += $(ale_linters)
 check = \
