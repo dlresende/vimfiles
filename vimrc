@@ -6,7 +6,7 @@ execute pathogen#infect()
 
 runtime! config/bindings.vim  " Load shortcuts
 
-silent Helptags
+silent Helptags    " generate :help docs for plugins installed with pathogen
 
 set expandtab      " on pressing tab, insert 2 spaces
 set tabstop=2      " show existing tab with 2 spaces width
