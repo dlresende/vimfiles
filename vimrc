@@ -12,7 +12,10 @@ set expandtab      " on pressing tab, insert 2 spaces
 set tabstop=2      " show existing tab with 2 spaces width
 set shiftwidth=2   " when indenting with '>', use 2 spaces width
 set conceallevel=2 " concealed text is completely hidden
+set number         " show line number
 
+autocmd BufRead,BufNewFile * setlocal signcolumn=yes " always keep signcolumn
+autocmd BufRead,BufNewFile * highlight SignColumn ctermbg=NONE " configure gutter to have same color as where the line numbers show up
 
 " vim-colors-solarized {{{
   syntax enable
@@ -100,8 +103,10 @@ set conceallevel=2 " concealed text is completely hidden
 " }}}
 
 " ale {{{
+	highlight ALESignColumnWithoutErrors ctermfg=246 ctermbg=7 guifg=#839496 guibg=Grey
   let g:ale_linters_explicit = 1 " only run linters named in ale_linters settings
   let g:ale_warn_about_trailing_whitespace = 0 " handled by vim-better-whitespace
+	let g:ale_change_sign_column_color = 0 " reset the sign column color when there are no more errors
   let g:ale_sign_column_always = 1 " can keep the sign gutter open at all times
   let g:ale_sign_error = '☠︎'
   let g:ale_sign_warning = '⚠'
