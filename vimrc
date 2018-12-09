@@ -80,11 +80,12 @@ autocmd BufRead,BufNewFile * highlight SignColumn ctermbg=NONE " configure gutte
 " vim-go {{{
   let g:go_fmt_command = "goimports" " goimports will format import declarations on save
   let g:go_textobj_include_function_doc = 1 " treat comments as part of a function (e.g. `vaf`)
+  let g:go_fmt_autosave = 0
   let g:go_fmt_fail_silently = 0 " do not show errors when parsing the file on save
   let g:go_addtags_transform = "camelcase" " case it should apply while converting: snake_case, snake_case
   let g:go_metalinter_autosave = 0 " delegate checks to ale
-  let g:go_metalinter_autosave_enabled = ['vet', 'golint', 'errcheck']
-  let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck'] " tools used by gometalinter
+  let g:go_metalinter_autosave_enabled = []
+  let g:go_metalinter_enabled = [] " tools used by gometalinter
   let g:go_metalinter_deadline = "5s"
   let g:go_def_mode = 'guru' " use 'guru' or 'godef' to go to definition
   let g:go_decls_includes = "func,type" " what :GoDecls and :GoDeclsDir should show
