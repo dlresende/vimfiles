@@ -5,8 +5,10 @@ help:
 	@sed -n -E "s/^\.PHONY:[[:space:]]+(.*)$$/\1/p" Makefile
 
 ale_listers = checkstyle pmd javac yamllint gometalinter go
+markdown_preview_deps = node yarn
 dependencies = nvim
 dependencies += $(ale_linters)
+dependencies += $(markdown_preview_deps)
 check = \
 	if ! command -v "$(1)" > /dev/null; then \
 		echo "$(1) required, but not found in PATH."; \
@@ -41,6 +43,7 @@ update-plugins:
 resolve-plugin-dependencies: check-dependencies update-plugins
 	@echo "Installing tools required by vim-go..."
 	@nvim --headless +'GoUpdateBinaries' +'qall!'
+	@yarn --cwd $(HOME)/.vim/bundle/markdown-preview.nvim install
 	@echo "...done"
 
 .PHONY: remove-plugin			# Remove a plugin installed as a submodule: make remove-plugin MODULE=bundle/ale

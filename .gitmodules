@@ -34,9 +34,6 @@
 [submodule "bundle/vim-surround"]
 	path = bundle/vim-surround
 	url = https://github.com/tpope/vim-surround.git
-[submodule "bundle/markdown-preview.vim"]
-	path = bundle/markdown-preview.vim
-	url = https://github.com/iamcco/markdown-preview.nvim.git
 [submodule "bundle/tagbar"]
 	path = bundle/tagbar
 	url = https://github.com/majutsushi/tagbar.git
@@ -52,3 +49,6 @@
 [submodule "bundle/vim-commentary"]
 	path = bundle/vim-commentary
 	url = https://github.com/tpope/vim-commentary.git
+[submodule "bundle/markdown-preview.nvim"]
+	path = bundle/markdown-preview.nvim
+	url = https://github.com/iamcco/markdown-preview.nvim.git
