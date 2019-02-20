@@ -1,4 +1,3 @@
-
 " vim-javacomplete2 {{{
   let g:JavaComplete_MavenRepositoryDisable  = 0                " don't append classpath with libraries specified in pom.xml
   let g:JavaComplete_UseFQN                  = 0                " use full qualified name in completions description

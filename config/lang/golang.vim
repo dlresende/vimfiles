@@ -27,6 +27,6 @@
 
 augroup dlresende_golang
   autocmd!
-  au BufRead * normal zR " Unfold all when opening a new file
+  autocmd BufRead * normal zR " Unfold all when opening a new file
   autocmd FileType go setlocal foldmethod=syntax
 augroup END
