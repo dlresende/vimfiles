@@ -25,7 +25,7 @@
   let g:go_highlight_generate_tags = 0
 " }}}
 
-augroup dlresende_golang
+augroup vimfiles_golang
   autocmd!
   autocmd BufRead * normal zR " Unfold all when opening a new file
   autocmd FileType go setlocal foldmethod=syntax
