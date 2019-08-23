@@ -8,6 +8,7 @@ runtime! config/bindings.vim  " Load shortcuts
 runtime! config/lang/golang.vim
 runtime! config/lang/java.vim
 runtime! config/lang/markdown.vim
+runtime! config/lang/json.vim
 
 silent Helptags    " generate :help docs for plugins installed with pathogen
 
