@@ -4,7 +4,7 @@ XDG_CONFIG_HOME := $(HOME)/.config
 help:
 	@sed -n -E "s/^\.PHONY:[[:space:]]+(.*)$$/\1/p" Makefile
 
-ale_linters = checkstyle pmd javac yamllint gometalinter go
+ale_linters = checkstyle pmd javac yamllint gometalinter go eslint
 markdown_preview_deps = node yarn
 dependencies = nvim
 dependencies += $(ale_linters)
@@ -44,6 +44,10 @@ resolve-plugin-dependencies: check-dependencies update-plugins
 	@echo "Installing tools required by vim-go..."
 	@nvim --headless +'GoUpdateBinaries' +'qall!'
 	@yarn --cwd $(HOME)/.vim/bundle/markdown-preview.nvim install
+	@echo "...done"
+	@echo "Installing tools required by LanguageClient-neovim..."
+	cd $(HOME)/.vim/bundle/LanguageClient-neovim && bash install.sh
+	@nvim --headless +'UpdateRemotePlugins' +'qall!'
 	@echo "...done"
 
 .PHONY: remove-plugin			# Remove a plugin installed as a submodule: make remove-plugin MODULE=bundle/ale
