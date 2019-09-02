@@ -22,8 +22,9 @@ autocmd BufRead,BufNewFile * setlocal signcolumn=yes " always keep signcolumn
 autocmd BufRead,BufNewFile * highlight SignColumn ctermbg=NONE " configure gutter to have same color as where the line numbers show up
 
 " vim-colors-solarized {{{
-  syntax enable
+  syntax on
   set background=dark
+  let g:solarized_termtrans=1
   let g:solarized_contrast='normal' " Use 'high' to toggle the presentation mode
   colorscheme solarized
 " }}}
