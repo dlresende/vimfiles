@@ -137,6 +137,10 @@ vmap Y "+y
   " Navigate between errors quickly
   nmap <silent> <C-k> <Plug>(ale_previous_wrap)
   nmap <silent> <C-j> <Plug>(ale_next_wrap)
+
+  nmap <silent> <leader>r <Plug>(ale_find_references) " Find usage
+  nmap <silent> gd <Plug>(ale_go_to_definition) " Go to declaration
+  nmap <silent> <leader>w <Plug>(ale_fix)
 " }}}
 
 
