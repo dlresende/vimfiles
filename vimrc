@@ -16,10 +16,6 @@ set expandtab      " on pressing tab, insert 2 spaces
 set tabstop=2      " show existing tab with 2 spaces width
 set shiftwidth=2   " when indenting with '>', use 2 spaces width
 set conceallevel=2 " concealed text is completely hidden
-set number         " show line number
-
-autocmd BufRead,BufNewFile * setlocal signcolumn=yes " always keep signcolumn
-autocmd BufRead,BufNewFile * highlight SignColumn ctermbg=NONE " configure gutter to have same color as where the line numbers show up
 
 " vim-colors-solarized {{{
   syntax on
@@ -47,13 +43,18 @@ autocmd BufRead,BufNewFile * highlight SignColumn ctermbg=NONE " configure gutte
 
 
 " ale {{{
-	highlight ALESignColumnWithoutErrors ctermfg=246 ctermbg=7 guifg=#839496 guibg=Grey
+  highlight SignColumn ctermbg=NONE " gutter to have same color as where the line numbers show up
+
+  set signcolumn=yes
+
   let g:ale_linters_explicit = 1 " only run linters named in ale_linters settings
   let g:ale_warn_about_trailing_whitespace = 0 " handled by vim-better-whitespace
 	let g:ale_change_sign_column_color = 0 " reset the sign column color when there are no more errors
   let g:ale_sign_column_always = 1 " can keep the sign gutter open at all times
-  let g:ale_sign_error = '☠︎'
-  let g:ale_sign_warning = '⚠'
+  let g:ale_sign_error = '>>'
+  let g:ale_sign_warning = '--'
+  " let g:ale_sign_error = '☠︎'
+  " let g:ale_sign_warning = '⚠'
   let g:ale_set_highlights = 1 " disable highlighting
   let g:airline#extensions#ale#enabled = 1 " show errors or warnings in my statusline
   let g:ale_lint_on_save = 1
@@ -67,10 +68,9 @@ autocmd BufRead,BufNewFile * highlight SignColumn ctermbg=NONE " configure gutte
   \ 'java': [ 'javac', 'checkstyle', 'pmd'],
   \ 'ruby': [ 'ruby', 'rubocop', 'reek'],
   \}
-  let g:ale_go_gometalinter_options = 
+  let g:ale_go_gometalinter_options =
         \ '--vendor ' .
         \ '--fast ' .
         \ '--exclude=\"\bexported \\w+ (\\S*[''.]*)([a-zA-Z''.*]*) should have comment or be unexported\b\"'
   let g:ale_java_pmd_options = 'pmd -R category/java/bestpractices.xml' " pmd installed via brew has a different api: `pmd pmd -R...`
 " }}}
-
