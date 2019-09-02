@@ -45,10 +45,6 @@ resolve-plugin-dependencies: check-dependencies update-plugins
 	@nvim --headless +'GoUpdateBinaries' +'qall!'
 	@yarn --cwd $(HOME)/.vim/bundle/markdown-preview.nvim install
 	@echo "...done"
-	@echo "Installing tools required by LanguageClient-neovim..."
-	cd $(HOME)/.vim/bundle/LanguageClient-neovim && bash install.sh
-	@nvim --headless +'UpdateRemotePlugins' +'qall!'
-	@echo "...done"
 
 .PHONY: remove-plugin			# Remove a plugin installed as a submodule: make remove-plugin MODULE=bundle/ale
 remove-plugin:
