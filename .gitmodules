@@ -52,9 +52,6 @@
 [submodule "bundle/markdown-preview.nvim"]
 	path = bundle/markdown-preview.nvim
 	url = https://github.com/iamcco/markdown-preview.nvim.git
-[submodule "bundle/vim-yaml-folds"]
-	path = bundle/vim-yaml-folds
-	url = https://github.com/pedrohdz/vim-yaml-folds.git
 [submodule "bundle/indentLine"]
 	path = bundle/indentLine
 	url = https://github.com/Yggdroot/indentLine.git
