@@ -66,7 +66,6 @@ set conceallevel=2 " concealed text is completely hidden
   \ 'sh':   [ 'shellcheck'],
   \ 'go':   [ 'gometalinter', 'gobuild'],
   \ 'java': [ 'javac', 'checkstyle', 'pmd'],
-  \ 'ruby': [ 'ruby', 'rubocop', 'reek'],
   \}
   let g:ale_go_gometalinter_options =
         \ '--vendor ' .
