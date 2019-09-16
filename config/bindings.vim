@@ -104,18 +104,6 @@ vmap Y "+y
 " }}}
 
 
-" vim-markdown {{{
-  map ]] <Plug>Markdown_MoveToNextHeader
-  map [[ <Plug>Markdown_MoveToPreviousHeader
-  map ][ <Plug>Markdown_MoveToNextSiblingHeader
-  map [] <Plug>Markdown_MoveToPreviousSiblingHeader
-  map ]u <Plug>Markdown_MoveToParentHeader
-  map ]c <Plug>Markdown_MoveToCurHeader
-  map gx <Plug>Markdown_OpenUrlUnderCursor
-  map ge <Plug>Markdown_EditUrlUnderCursor
-" }}}
-
-
 " tabularize {{{
   nmap <leader>t= :Tabularize /=<CR>
   vmap <leader>t= :Tabularize /=<CR>
