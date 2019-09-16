@@ -1,0 +1,11 @@
+---
+version: 1
+update_configs:
+  - package_manager: "submodules"
+    directory: "/"
+    update_schedule: "weekly"
+    automerged_updates:
+      - match:
+          update_type: "all"
+    commit_message:
+      prefix: "chore"
