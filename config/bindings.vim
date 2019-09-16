@@ -112,15 +112,6 @@ vmap Y "+y
 " }}}
 
 
-" vim-go {{{
-  autocmd FileType go nmap <leader>t <Plug>(go-test)
-  autocmd FileType go nmap <leader>b <Plug>(go-build)
-  autocmd FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
-  autocmd FileType go nmap <Leader>i <Plug>(go-info)
-  autocmd FileType go nmap K <Plug>(go-doc)
-" }}}
-
-
 " ale {{{
   " Navigate between errors quickly
   nmap <silent> <C-k> <Plug>(ale_previous_wrap)
