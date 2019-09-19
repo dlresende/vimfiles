@@ -2,6 +2,6 @@
 language: minimal
 
 before_install:
-  - apt-get install neovim
-  - apt-get install python-neovim
-  - apt-get install python3-neovim
+  - sudo apt-get install neovim
+  - sudo apt-get install python-neovim
+  - sudo apt-get install python3-neovim
