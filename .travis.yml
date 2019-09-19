@@ -1,0 +1,5 @@
+---
+language: minimal
+
+before_install:
+  - apt-get install nvim

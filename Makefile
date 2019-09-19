@@ -7,6 +7,8 @@ help:
 ale_linters = checkstyle pmd javac yamllint gometalinter go eslint
 markdown_preview_deps = node yarn
 dependencies = nvim
+dependencies = python2
+dependencies = python3
 dependencies += $(ale_linters)
 dependencies += $(markdown_preview_deps)
 check = \
@@ -51,3 +53,14 @@ remove-plugin:
 	git submodule deinit -f -- $(MODULE)
 	rm -fr .git/modules/$(MODULE)
 	git rm -f $(MODULE)
+
+test_vim = \
+	vim_log=$$(mktemp) ; \
+	nvim -V1"$$vim_log" --headless +'checkhealth' +'qall!' 2>&1 > /dev/null ; \
+	nb_of_errors=$$(grep ERROR "$$vim_log" | wc -l | xargs) ; \
+	echo "\nVim log file: $$vim_log" ; \
+	exit $$nb_of_errors ; \
+
+.PHONY: test	# Test Neovim configuration
+test:
+	@$(call test_vim)
