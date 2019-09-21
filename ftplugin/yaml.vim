@@ -1,5 +1,5 @@
 set foldmethod=indent
 
-let g:ale_linters = {
+let b:ale_linters = {
 \ 'yaml': [ 'yamllint'],
 \}
