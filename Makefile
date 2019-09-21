@@ -37,7 +37,6 @@ configure:
 	ln -snf "$(HOME)/.vim/vimrc" "$(HOME)/.vimrc"
 	mkdir -p "$(XDG_CONFIG_HOME)"
 	ln -snf "$(HOME)/.vim" "$(XDG_CONFIG_HOME)/nvim"
-	ln -snf "$(HOME)/.vimrc" "$(XDG_CONFIG_HOME)/nvim/init.vim"
 	@echo "...done"
 
 .PHONY: update-plugins			# Checkout latest version of plugins installed as submodules
