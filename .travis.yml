@@ -10,6 +10,7 @@ before_install:
   - curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
   - sudo apt-get install -y nodejs
   - sudo npm install eslint --global
+  - sudo apt-get install golang-go
 
 install:
   - make install
