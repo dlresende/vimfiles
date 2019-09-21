@@ -4,13 +4,18 @@ XDG_CONFIG_HOME := $(HOME)/.config
 help:
 	@sed -n -E "s/^\.PHONY:[[:space:]]+(.*)$$/\1/p" Makefile
 
-ale_linters = checkstyle pmd javac yamllint gometalinter go eslint
+ale_linters = yamllint eslint
+lang_servers = gopls
+lang_servers_deps = javac java
+# lang_servers += bash-language-server # https://github.com/mads-hartmann/bash-language-server/issues/141
 markdown_preview_deps = node yarn
 dependencies = nvim
 dependencies = python2
 dependencies = python3
 dependencies += $(ale_linters)
 dependencies += $(markdown_preview_deps)
+dependencies += $(lang_servers_deps)
+dependencies += $(lang_servers)
 check = \
 	if ! command -v "$(1)" > /dev/null; then \
 		echo "$(1) required, but not found in PATH."; \
@@ -43,10 +48,8 @@ update-plugins:
 
 .PHONY: resolve-plugin-dependencies	# Run commands provided by a plugin to install dependencies they need
 resolve-plugin-dependencies: check-dependencies update-plugins
-	@echo "Installing tools required by vim-go..."
-	@nvim --headless +'GoUpdateBinaries' +'qall!'
 	@yarn --cwd $(HOME)/.vim/bundle/markdown-preview.nvim install
-	@echo "...done"
+	@(cd $(HOME)/.vim/vendor/eclipse.jdt.ls && ./mvnw --batch-mode clean package)
 
 .PHONY: remove-plugin			# Remove a plugin installed as a submodule: make remove-plugin MODULE=bundle/ale
 remove-plugin:

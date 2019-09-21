@@ -2,7 +2,6 @@
   let b:ale_linters = {
   \ 'go': [ 'gopls' ],
   \}
-
 " }}}
 
 set foldmethod=syntax
