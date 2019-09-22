@@ -50,6 +50,8 @@ update-plugins:
 resolve-plugin-dependencies: check-dependencies update-plugins
 	@yarn --cwd $(HOME)/.vim/bundle/markdown-preview.nvim install
 	@(cd $(HOME)/.vim/vendor/eclipse.jdt.ls && ./mvnw --batch-mode clean package)
+	@(python2 -m pip uninstall neovim pynvim ; python2 -m pip install --user --upgrade pynvim)
+	@(python3 -m pip uninstall neovim pynvim ; python3 -m pip install --user --upgrade pynvim)
 
 .PHONY: remove-plugin			# Remove a plugin installed as a submodule: make remove-plugin MODULE=bundle/ale
 remove-plugin:
