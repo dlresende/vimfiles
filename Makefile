@@ -28,7 +28,7 @@ check-dependencies:
 	@echo "...done"
 
 .PHONY: install				# Check for dependencies, setup Vim config and checkout plugins
-install: check-dependencies configure update-plugins resolve-plugin-dependencies
+install: check-dependencies configure resolve-plugin-dependencies
 
 .PHONY: configure			# Create shortcuts to tell Vim & NeoVim to use this config
 configure:
@@ -46,7 +46,7 @@ update-plugins:
 	@echo "...done"
 
 .PHONY: resolve-plugin-dependencies	# Run commands provided by a plugin to install dependencies they need
-resolve-plugin-dependencies: check-dependencies update-plugins
+resolve-plugin-dependencies: check-dependencies
 	@yarn --cwd $(HOME)/.vim/bundle/markdown-preview.nvim install
 	@(cd $(HOME)/.vim/vendor/eclipse.jdt.ls && ./mvnw --batch-mode clean package)
 	@(python2 -m pip uninstall --yes neovim pynvim ; python2 -m pip install --user --upgrade pynvim)
