@@ -12,7 +12,6 @@ before_install:
   - sudo apt-get install -y nodejs
   - sudo npm install eslint --global
   - sudo apt-get install golang-go
-  - GO111MODULE=on go get golang.org/x/tools/gopls@latest
   - ln -snf $PWD $HOME/.vim
 
 install:

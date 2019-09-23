@@ -5,7 +5,6 @@ help:
 	@sed -n -E "s/^\.PHONY:[[:space:]]+(.*)$$/\1/p" Makefile
 
 ale_linters = yamllint eslint
-lang_servers = gopls
 lang_servers_deps = javac java
 # lang_servers += bash-language-server # https://github.com/mads-hartmann/bash-language-server/issues/141
 markdown_preview_deps = node yarn
@@ -52,6 +51,7 @@ resolve-plugin-dependencies: check-dependencies update-plugins
 	@(cd $(HOME)/.vim/vendor/eclipse.jdt.ls && ./mvnw --batch-mode clean package)
 	@(python2 -m pip uninstall --yes neovim pynvim ; python2 -m pip install --user --upgrade pynvim)
 	@(python3 -m pip uninstall --yes neovim pynvim ; python3 -m pip install --user --upgrade pynvim)
+	@(GO111MODULE=on go get golang.org/x/tools/gopls@latest)
 
 .PHONY: remove-plugin			# Remove a plugin installed as a submodule: make remove-plugin MODULE=bundle/ale
 remove-plugin:
