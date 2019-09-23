@@ -5,7 +5,6 @@ runtime bundle/vim-pathogen/autoload/pathogen.vim
 execute pathogen#infect()
 
 runtime! config/bindings.vim  " Load shortcuts
-runtime! config/lang/markdown.vim
 
 silent Helptags    " generate :help docs for plugins installed with pathogen
 
