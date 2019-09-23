@@ -9,7 +9,7 @@ before_install:
   - sudo apt-get install -y python2.7 python-pip python-setuptools
   - sudo apt-get install -y python3 python3-pip python3-setuptools
   - sudo apt-get install -y yamllint
-  - sudo apt-get install -y nodejs
+  - sudo apt-get install -y npm
   - sudo apt-get install golang-go
   - sudo npm install eslint --global
   - ln -snf $PWD $HOME/.vim
