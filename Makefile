@@ -5,12 +5,12 @@ help:
 	@sed -n -E "s/^\.PHONY:[[:space:]]+(.*)$$/\1/p" Makefile
 
 ale_linters = yamllint eslint
-lang_servers_deps = javac java
+lang_servers_deps = javac java gem
 # lang_servers += bash-language-server # https://github.com/mads-hartmann/bash-language-server/issues/141
 markdown_preview_deps = node yarn
 dependencies = nvim
-dependencies = python2
-dependencies = python3
+dependencies += python2
+dependencies += python3
 dependencies += $(ale_linters)
 dependencies += $(markdown_preview_deps)
 dependencies += $(lang_servers_deps)
@@ -52,6 +52,7 @@ resolve-plugin-dependencies: check-dependencies update-plugins
 	@(python2 -m pip uninstall --yes neovim pynvim ; python2 -m pip install --user --upgrade pynvim)
 	@(python3 -m pip uninstall --yes neovim pynvim ; python3 -m pip install --user --upgrade pynvim)
 	@(GO111MODULE=on go get golang.org/x/tools/gopls@latest)
+	@(gem install solargraph)
 
 .PHONY: remove-plugin			# Remove a plugin installed as a submodule: make remove-plugin MODULE=bundle/ale
 remove-plugin:
