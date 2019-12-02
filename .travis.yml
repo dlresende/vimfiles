@@ -13,6 +13,9 @@ before_install:
   - sudo apt-get install --quiet --yes nodejs
   - sudo npm install eslint --global
 
+jdk:
+  - openjdk11
+
 install:
   - ln -snf $PWD $HOME/.vim
   - make install
