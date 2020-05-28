@@ -8,7 +8,7 @@ before_install:
   - sudo apt-get install --quiet --yes python2.7 python-pip python-setuptools
   - sudo apt-get install --quiet --yes python3 python3-pip python3-setuptools
   - sudo apt-get install --quiet --yes yamllint
-  - sudo apt-get install --quiet --yes golang-go
+  - eval "$(GIMME_GO_VERSION=1.13 gimme)"
   - curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
   - sudo apt-get install --quiet --yes nodejs
   - sudo npm install eslint --global
