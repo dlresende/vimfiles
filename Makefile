@@ -51,7 +51,7 @@ resolve-plugin-dependencies: check-dependencies
 	@(cd $(HOME)/.vim/vendor/eclipse.jdt.ls && ./mvnw --quiet --batch-mode clean package)
 	@(python2 -m pip uninstall --yes neovim pynvim ; python2 -m pip install --user --upgrade pynvim)
 	@(python3 -m pip uninstall --yes neovim pynvim ; python3 -m pip install --user --upgrade pynvim)
-	@(go get golang.org/x/tools/gopls@latest)
+	@(GO111MODULE=on go get golang.org/x/tools/gopls@latest)
 	@(gem install solargraph --quiet)
 
 .PHONY: remove-plugin			# Remove a plugin installed as a submodule: make remove-plugin MODULE=bundle/ale
