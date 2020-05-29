@@ -40,6 +40,7 @@
 [submodule "bundle/vim-commentary"]
 	path = bundle/vim-commentary
 	url = https://github.com/tpope/vim-commentary.git
-[submodule "vendor/eclipse.jdt.ls"]
-	path = vendor/eclipse.jdt.ls
-	url = https://github.com/eclipse/eclipse.jdt.ls.git
+[submodule "bundle/coc.nvim"]
+	path = bundle/coc.nvim
+	url = https://github.com/neoclide/coc.nvim.git
+  branch = release

@@ -7,12 +7,14 @@ help:
 lang_servers_deps = javac java gem
 # lang_servers += bash-language-server # https://github.com/mads-hartmann/bash-language-server/issues/141
 markdown_preview_deps = node yarn
+coc_nvim = node
 dependencies = nvim
 dependencies += python2
 dependencies += python3
 dependencies += $(markdown_preview_deps)
 dependencies += $(lang_servers_deps)
 dependencies += $(lang_servers)
+dependencies += $(coc_nvim)
 check = \
 	if ! command -v "$(1)" > /dev/null; then \
 		echo "$(1) required, but not found in PATH."; \
