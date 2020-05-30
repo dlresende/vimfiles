@@ -42,10 +42,10 @@ update:
 test_vim = \
 	vim_log=$$(mktemp) ; \
 	nvim -V1"$$vim_log" --headless +'checkhealth' +'qall!' 2>&1 > /dev/null ; \
-	nb_of_errors=$$(grep ERROR "$$vim_log" | wc -l | xargs) ; \
+	nb_of_errors=$$(grep -c ERROR "$$vim_log") ; \
+	cat "$$vim_log" ; \
 	echo "\nNumber of errors: $$nb_of_errors" ; \
 	echo "\nVim log file: $$vim_log" ; \
-	cat "$$vim_log" ; \
 	exit $(nb_of_errors) ; \
 
 .PHONY: test		# Test configuration
