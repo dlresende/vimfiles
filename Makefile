@@ -9,7 +9,7 @@ dependencies = nvim
 dependencies += python2
 dependencies += python3
 dependencies += $(coc_nvim)
-check = \
+is_in_path = \
 	if ! command -v "$(1)" > /dev/null; then \
 		echo "$(1) required, but not found in PATH."; \
 		exit 1; \
@@ -18,7 +18,7 @@ check = \
 .PHONY: check 		# Verify all tools required by the config are present
 check:
 	@echo "Checking if dependencies are present..."
-	@$(foreach dependency,$(dependencies),$(call check,$(dependency)))
+	@$(foreach dependency,$(dependencies),$(call is_in_path,$(dependency)))
 	@echo "...done"
 
 .PHONY: install		# Check dependencies, setup config and install plugins
