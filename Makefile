@@ -1,19 +1,13 @@
 XDG_CONFIG_HOME := $(HOME)/.config
 
-.PHONY: help				# Print the help menu
+.PHONY: help		# Print the help menu
 help:
 	@sed -n -E "s/^\.PHONY:[[:space:]]+(.*)$$/\1/p" Makefile
 
-lang_servers_deps = javac java gem
-# lang_servers += bash-language-server # https://github.com/mads-hartmann/bash-language-server/issues/141
-markdown_preview_deps = node yarn
-coc_nvim = node
+coc_nvim = node yarn
 dependencies = nvim
 dependencies += python2
 dependencies += python3
-dependencies += $(markdown_preview_deps)
-dependencies += $(lang_servers_deps)
-dependencies += $(lang_servers)
 dependencies += $(coc_nvim)
 check = \
 	if ! command -v "$(1)" > /dev/null; then \
@@ -21,16 +15,16 @@ check = \
 		exit 1; \
 	fi;
 
-.PHONY: check-dependencies 		# Verify that all tools required by this Vim config are present in PATH
-check-dependencies:
+.PHONY: check 		# Verify all tools required by the config are present
+check:
 	@echo "Checking if dependencies are present..."
 	@$(foreach dependency,$(dependencies),$(call check,$(dependency)))
 	@echo "...done"
 
-.PHONY: install				# Check for dependencies, setup Vim config and checkout plugins
-install: check-dependencies configure resolve-plugin-dependencies
+.PHONY: install		# Check dependencies, setup config and install plugins
+install: check configure update
 
-.PHONY: configure			# Create shortcuts to tell Vim & NeoVim to use this config
+.PHONY: configure	# Point Vim/NeoVim to this config
 configure:
 	@echo "Configuring Vim and NeoVim..."
 	ln -snf "$(HOME)/.vim/vimrc" "$(HOME)/.vimrc"
@@ -39,26 +33,11 @@ configure:
 	ln -snf "$(HOME)/.vim/vimrc" "$(XDG_CONFIG_HOME)/nvim/init.vim"
 	@echo "...done"
 
-.PHONY: update-plugins			# Checkout latest version of plugins installed as submodules
-update-plugins:
+.PHONY: update		# Update plugins
+update:
 	@echo "Updating plugings..."
-	@git submodule update --init --recursive --remote
+	@nvim -es -u vimrc -i NONE -c "PlugUpdate" -c "qa"
 	@echo "...done"
-
-.PHONY: resolve-plugin-dependencies	# Run commands provided by a plugin to install dependencies they need
-resolve-plugin-dependencies: check-dependencies
-	@yarn --cwd $(HOME)/.vim/bundle/markdown-preview.nvim install
-	@(cd $(HOME)/.vim/vendor/eclipse.jdt.ls && ./mvnw --quiet --batch-mode clean package)
-	@(python2 -m pip uninstall --yes neovim pynvim ; python2 -m pip install --user --upgrade pynvim)
-	@(python3 -m pip uninstall --yes neovim pynvim ; python3 -m pip install --user --upgrade pynvim)
-	@(GO111MODULE=on go get golang.org/x/tools/gopls@latest)
-	@(gem install solargraph --quiet)
-
-.PHONY: remove-plugin			# Remove a plugin installed as a submodule: make remove-plugin MODULE=bundle/ale
-remove-plugin:
-	git submodule deinit -f -- $(MODULE)
-	rm -fr .git/modules/$(MODULE)
-	git rm -f $(MODULE)
 
 test_vim = \
 	vim_log=$$(mktemp) ; \
@@ -69,6 +48,6 @@ test_vim = \
 	cat "$$vim_log" ; \
 	exit $(nb_of_errors) ; \
 
-.PHONY: test	# Test Neovim configuration
+.PHONY: test		# Test configuration
 test:
 	@$(call test_vim)
