@@ -36,7 +36,7 @@ configure:
 .PHONY: update		# Update plugins
 update:
 	@echo "Updating plugings..."
-	@nvim -es -u vimrc -i NONE -c "PlugUpdate" -c "qa"
+	@nvim --headless +'PlugUpdate' +'qall!'
 	@echo "...done"
 
 test_vim = \
