@@ -48,6 +48,15 @@ test_vim = \
 	echo "\nVim log file: $$vim_log" ; \
 	exit $(nb_of_errors) ; \
 
+vim_log=$(shell mktemp)
+vim_errors=$(shell mktemp)
+
+fail_if_vim_error = \
+	nvim -V1$(1) -i NONE --headless +'checkhealth' +'qall!' ; \
+	cat $(1) ; \
+	grep -e ERROR $(1) > $(2) ; \
+	[ -s $(2) ] && exit 1 || exit 0
+
 .PHONY: test		# Test configuration
 test:
-	@$(call test_vim)
+	@$(call fail_if_vim_error,$(vim_log),$(vim_errors))
