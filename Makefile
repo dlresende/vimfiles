@@ -52,7 +52,7 @@ vim_log=$(shell mktemp)
 vim_errors=$(shell mktemp)
 
 fail_if_vim_error = \
-	nvim -V1$(1) -i NONE --headless +'checkhealth' +'qall!' ; \
+	nvim -V1$(1) -i NONE --headless +'checkhealth nvim' +'qall!' ; \
 	cat $(1) ; \
 	grep -e ERROR $(1) > $(2) ; \
 	[ -s $(2) ] && exit 1 || exit 0
