@@ -4,11 +4,11 @@ XDG_CONFIG_HOME := $(HOME)/.config
 help:
 	@sed -n -E "s/^\.PHONY:[[:space:]]+(.*)$$/\1/p" Makefile
 
-coc_nvim = node yarn
 dependencies = nvim
 dependencies += python2
 dependencies += python3
-dependencies += $(coc_nvim)
+dependencies += ctags # tagbar
+dependencies += node yarn # coc.nvim
 is_in_path = \
 	if ! command -v "$(1)" > /dev/null; then \
 		echo "$(1) required, but not found in PATH."; \
