@@ -1,6 +1,7 @@
 runtime! config/plug.vim
 
 runtime! config/bindings.vim 
+runtime! config/bindings/*.vim 
 
 runtime! config/plugin/*.vim
 
