@@ -1,2 +1,5 @@
+" Open file system explorer.
 map \       :NERDTreeToggle<CR>
-nnoremap \| :NERDTreeFind<CR>
+
+" Reveal in file system explorer.
+nnoremap <bar> :NERDTreeFind<CR>
