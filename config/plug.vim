@@ -8,7 +8,9 @@ endif
 call plug#begin('~/.vim/plugged')
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
   Plug 'neoclide/coc-java', {'do': 'yarn install --frozen-lockfile'}
+  Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile'}
   Plug 'neoclide/coc-solargraph', {'do': 'yarn install --frozen-lockfile'}
+  Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
   Plug 'kien/ctrlp.vim'
   Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
   Plug 'preservim/nerdtree'
