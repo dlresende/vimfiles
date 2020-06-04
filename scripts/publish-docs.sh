@@ -6,7 +6,7 @@ set -e # bail out early if any command fails
 set -u # fail if we hit unset variables
 set -o pipefail # fail if any component of any pipe fails
 
-REPO_DIR="$(cd $(dirname "$0") && pwd)/.."
+REPO_DIR="$(cd $(dirname $(realpath "$0")) && pwd -P)/.."
 
 ( cd "$REPO_DIR"
   make docs > wiki/Home.md
