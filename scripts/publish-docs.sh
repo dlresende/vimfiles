@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+[ -z "$DEBUG" ] || set -x
+
 set -e # bail out early if any command fails
 set -u # fail if we hit unset variables
 set -o pipefail # fail if any component of any pipe fails
@@ -10,9 +12,10 @@ REPO_DIR="$(cd $(dirname "$0") && pwd)/.."
   make docs > wiki/Home.md
 
   ( cd wiki
-    git pull --rebase
     git add Home.md
     git commit -m "Update cheatsheet"
-    git push
+    git pull --rebase
   )
+
+  git commit -m "Update wiki" -- wiki
 )
