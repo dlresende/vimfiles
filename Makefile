@@ -55,5 +55,5 @@ test:
 
 .PHONY: docs    # Export cheat sheet
 docs:
-	@cat config/bindings/*.vim | \
+	@cat config/bindings/*.vim config/bindings.vim | \
 		sed -nE 'h;N;s/^("(.*)\n(n|v|x|s|o|i|l|c|t|nnore)?map([[:space:]]+<silent>)?[[:space:]]+([^[:space:]]+)[[:space:]]+.+)$$/`\5` - \2  /p;D'
