@@ -12,10 +12,9 @@ REPO_DIR="$(cd $(dirname "$0") && pwd)/.."
   make docs > wiki/Home.md
 
   ( cd wiki
-    git add Home.md
-    git commit -m "Update cheatsheet"
-    git pull --rebase
+    git commit -m "Update cheatsheet" -- Home.md || true
+    git pull --rebase || true
   )
 
-  git commit -m "Update wiki" -- wiki
+  git commit -m "Update wiki" -- wiki || true
 )
