@@ -1,3 +1,23 @@
 {
-  "java.updateLanguageServer": true
+  "solargraph.transport": "socket",
+  "solargraph.promptDownload": true,
+  "solargraph.externalServer": {
+    "host": "localhost",
+    "port": 7658
+  },
+  "solargraph.commandPath": "solargraph",
+  "solargraph.useBundler": true,
+  "solargraph.bundlerPath": "bundle",
+  "solargraph.checkGemVersion": true,
+  "solargraph.completion": true,
+  "solargraph.hover": true,
+  "solargraph.diagnostics": true,
+  "solargraph.autoformat": false,
+  "solargraph.formatting": true,
+  "solargraph.symbols": true,
+  "solargraph.definitions": true,
+  "solargraph.rename": true,
+  "solargraph.references": true,
+  "solargraph.folding": true,
+  "solargraph.logLevel": "debug"
 }
