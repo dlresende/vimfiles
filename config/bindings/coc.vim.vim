@@ -1,16 +1,16 @@
-" Go to definition
+" go to definition
 nmap <silent> gd <Plug>(coc-definition)
 
-" Go to type defitinion
+" go to type defitinion
 nmap <silent> gy <Plug>(coc-type-definition)
 
-" Go to implementation
+" go to implementation
 nmap <silent> gi <Plug>(coc-implementation)
 
-" Find references
+" find references
 nmap <silent> gr <Plug>(coc-references)
 
-" Show documentation in preview window
+" show documentation in preview window
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()
@@ -21,10 +21,10 @@ function! s:show_documentation()
   endif
 endfunction
 
-" Highlight the symbol and its references when holding the cursor.
+" highlight the symbol and its references when holding the cursor
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
-" Rename symbol
+" rename symbol
 nmap <leader>rn <Plug>(coc-rename)
 
 " Formatting selected code.
@@ -46,56 +46,59 @@ augroup end
 " Apply codeAction to the current buffer.
 " nmap <leader>ac  <Plug>(coc-codeaction)
 
-" Apply AutoFix to problem on the current line.
+" apply AutoFix to problem on the current line
 nmap <leader>qf  <Plug>(coc-fix-current)
 
-" Select inside function/method.
+" select inside function/method
 xmap if <Plug>(coc-funcobj-i)
 omap if <Plug>(coc-funcobj-i)
 
-" Select around function/method.
+" select around function/method
 xmap af <Plug>(coc-funcobj-a)
 omap af <Plug>(coc-funcobj-a)
 
-" Select inside class/struct/interface.
+" select inside class/struct/interface
 xmap ic <Plug>(coc-classobj-i)
 omap ic <Plug>(coc-classobj-i)
 
-" Select around class/struct/interface.
+" select around class/struct/interface
 xmap ac <Plug>(coc-classobj-a)
 omap ac <Plug>(coc-classobj-a)
 
-" Selection ranges
+" select next selection range
 nmap <silent> <C-s> <Plug>(coc-range-select)
 xmap <silent> <C-s> <Plug>(coc-range-select)
 
-" Add `:Format` command to format current buffer.
+" select previous selection range
+xmap <silent> <C-d> <Plug>(coc-range-select-backward)
+
+" add `:Format` command to format current buffer
 command! -nargs=0 Format :call CocAction('format')
 
-" Add `:Fold` command to fold current buffer.
+" add `:Fold` command to fold current buffer
 command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 
-" Add `:OR` command for organize imports of the current buffer.
+" add `:OR` command for organize imports of the current buffer
 command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
 
-" Add (Neo)Vim's native statusline support.
+" add (Neo)Vim's native statusline support
 " NOTE: Please see `:h coc-status` for integrations with external plugins that
 " provide custom statusline: lightline.vim, vim-airline.
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
-" Show all diagnostics.
+" show all diagnostics
 nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
 
-" Manage extensions.
-nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
+" manage extensions
+" nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
 
-" Show commands.
-nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
+" show commands
+" nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
 
-" Find symbol of current document (outline).
+" find symbol of current document (outline)
 nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
 
-" Search workspace symbols.
+" search workspace symbols
 nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
 
 " Do default action for next item.
@@ -121,5 +124,5 @@ function! s:check_back_space() abort
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-" Trigger completion.
+" trigger completion
 inoremap <silent><expr> <c-space> coc#refresh()

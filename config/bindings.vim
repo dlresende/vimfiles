@@ -1,44 +1,44 @@
-" This line MUST come before any <leader> mappings
+" this line MUST come before any <leader> mappings
 let mapleader=","
 
-" Save by pressing <enter>
+" save by pressing <enter>
 nnoremap <silent> <cr> :w<cr>
 
-" Move to previous buffer
+" move to previous buffer
 nnoremap <silent> <leader>z :bp<CR>
 
-" Move to next buffer
+" move to next buffer
 nnoremap <silent> <leader>x :bn<CR>
 
-" Move to previous window
+" move to previous window
 nmap <silent> <C-p> :wincmd p<CR>
 
-" Make windows the same size
+" make windows the same size
 nmap <silent> <leader>w= :wincmd =<CR>
 
-" Swap windows
+" swap windows
 nmap <silent> <leader>wx :wincmd x<CR>
 
-" Split window horizontally
+" split window horizontally
 nmap <silent> <leader>hs :split<CR>
 
-" Split window vertically
+" split window vertically
 nmap <silent> <leader>vs :vsplit<CR>
 
-" Close window splitting
+" close window splitting
 nmap <silent> <leader>sc :close<CR>
 
-" Disable highlight until next search
+" disable highlight until next search
 nnoremap <silent> <space> :noh<cr>
 
-" Decrease identation on Visual mode
+" decrease identation on Visual mode
 vnoremap < <gv
 
-" Increase identation on Visual mode
+" increase identation on Visual mode
 vnoremap > >gv
 
-" Make Y consistent with C and D. See :help Y.
+" make Y consistent with C and D - see `:help Y`
 nnoremap Y y$
 
-" Copy to system clipboard in Visual mode
+" copy to system clipboard in Visual mode
 vmap Y "+y
