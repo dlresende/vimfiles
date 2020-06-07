@@ -4,18 +4,19 @@ let mapleader=","
 " Save by pressing <enter>
 nnoremap <silent> <cr> :w<cr>
 
-" Move back and forth through previous and next buffers with ,z and ,x
+" Move to previous buffer
 nnoremap <silent> <leader>z :bp<CR>
+
+" Move to next buffer
 nnoremap <silent> <leader>x :bn<CR>
 
-" Window Movement
-" Previous Window
+" Move to previous window
 nmap <silent> <C-p> :wincmd p<CR>
 
-" Equal Size Windows
+" Make windows the same size
 nmap <silent> <leader>w= :wincmd =<CR>
 
-" Swap Windows
+" Swap windows
 nmap <silent> <leader>wx :wincmd x<CR>
 
 " Split window horizontally
@@ -30,14 +31,14 @@ nmap <silent> <leader>sc :close<CR>
 " Disable highlight until next search
 nnoremap <silent> <space> :noh<cr>
 
-" Make line completion easier
-imap <C-l> <C-x><C-o>
-
+" Decrease identation on Visual mode
 vnoremap < <gv
+
+" Increase identation on Visual mode
 vnoremap > >gv
 
-" make Y consistent with C and D. See :help Y.
+" Make Y consistent with C and D. See :help Y.
 nnoremap Y y$
 
-" Y in visual mode copies to system clipboard
+" Copy to system clipboard in Visual mode
 vmap Y "+y
