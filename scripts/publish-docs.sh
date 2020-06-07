@@ -6,15 +6,13 @@ set -e # bail out early if any command fails
 set -u # fail if we hit unset variables
 set -o pipefail # fail if any component of any pipe fails
 
-REPO_DIR="$(cd $(dirname $(realpath "$0")) && pwd -P)/.."
+WIKI_REPO="$(mktemp -d)"
 
-( cd "$REPO_DIR"
-  make docs > wiki/Home.md
+git clone git@github.com:dlresende/vimfiles.wiki.git "$WIKI_REPO"
 
-  ( cd wiki
-    git commit -m "Update cheatsheet" -- Home.md || true
-    git pull --rebase || true
-  )
+make docs > "$WIKI_REPO/Home.md"
 
-  git commit -m "Update wiki" -- wiki || true
+( cd "$WIKI_REPO"
+  git commit -m "Update cheatsheet" -- Home.md || true
+  git push origin master || true
 )
