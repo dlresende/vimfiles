@@ -57,3 +57,5 @@ test:
 docs:
 	@cat config/bindings/*.vim config/bindings.vim | \
 		sed -nE 'h;N;s/^("(.*)\n(n|v|x|s|o|i|l|c|t|nnore)?map([[:space:]]+<silent>)?[[:space:]]+([^[:space:]]+)[[:space:]]+.+)$$/`\5` - \2  /p;D'
+	@echo
+	@echo 'Full list of standard shortcuts available [here](https://vim.rtorr.com/).'
