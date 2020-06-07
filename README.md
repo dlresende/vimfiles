@@ -6,3 +6,5 @@ $ git clone https://github.com/dlresende/vimfiles.git ~/.vim
 $ cd ~/.vim
 $ make install
 ```
+
+# Plugins
