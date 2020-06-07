@@ -2,9 +2,5 @@
 
 # Installation
 ```sh
-$ git clone https://github.com/dlresende/vimfiles.git ~/.vim
-$ cd ~/.vim
-$ make install
+$ curl https://vimfiles.diegolemos.net/install | bash
 ```
-
-# Plugins
