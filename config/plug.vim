@@ -15,6 +15,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'kien/ctrlp.vim'
   Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
   Plug 'preservim/nerdtree'
+  Plug 'godlygeek/tabular'
   Plug 'majutsushi/tagbar'
   Plug 'vim-airline/vim-airline'
   Plug 'altercation/vim-colors-solarized'
