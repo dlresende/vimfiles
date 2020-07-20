@@ -16,7 +16,7 @@
   "solargraph.commandPath": "solargraph",
   "solargraph.useBundler": true,
   "solargraph.bundlerPath": "bundle",
-  "solargraph.checkGemVersion": true,
+  "solargraph.checkGemVersion": false,
   "solargraph.completion": true,
   "solargraph.hover": true,
   "solargraph.diagnostics": true,
