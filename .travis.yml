@@ -10,7 +10,6 @@ before_install:
   - sudo apt-get update
   - sudo apt-get install --quiet --yes nodejs
   - sudo apt-get install --quiet --yes neovim
-  - sudo apg-get install --quiet --yes python-dev python-pip python3-dev python3-pip # required by neovim
   - sudo apt-get install --quiet --yes yarn
 
 jdk:
