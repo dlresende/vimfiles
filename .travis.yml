@@ -1,11 +1,9 @@
 ---
 language: minimal
 
-dist: xenial
+dist: focal
 
 before_install:
-  - sudo apt-get install software-properties-common # required by neovim
-  - sudo add-apt-repository --yes ppa:neovim-ppa/stable # required by neovim
   - curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
   - echo 'deb https://dl.yarnpkg.com/debian/ stable main' | sudo tee /etc/apt/sources.list.d/yarn.list
   - curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
