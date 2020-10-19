@@ -1,7 +1,7 @@
 ---
 language: minimal
 
-dist: focal
+dist: bionic
 
 before_install:
   - curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
