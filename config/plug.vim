@@ -7,7 +7,6 @@ endif
 
 call plug#begin('~/.vim/plugged')
   Plug 'iamcco/coc-diagnostic', {'do': 'yarn install --frozen-lockfile'}
-  Plug 'josa42/coc-go', {'do': 'yarn install --frozen-lockfile'}
   Plug 'neoclide/coc-java', {'do': 'yarn install --frozen-lockfile'}
   Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile'}
   Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
