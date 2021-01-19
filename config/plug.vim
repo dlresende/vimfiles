@@ -9,6 +9,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'iamcco/coc-diagnostic', {'do': 'yarn install --frozen-lockfile'}
   Plug 'neoclide/coc-java', {'do': 'yarn install --frozen-lockfile'}
   Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile'}
+  Plug 'fannheyward/coc-texlab', {'do': 'yarn install --frozen-lockfile'}
   Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
   Plug 'neoclide/coc-solargraph', {'do': 'yarn install --frozen-lockfile'}
   Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}

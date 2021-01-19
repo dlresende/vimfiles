@@ -18,6 +18,23 @@
   "diagnostic-languageserver.filetypes": {
     "sh": "shellcheck"
   },
+  "texlab.path": "texlab",
+  "texlab.trace.server": "verbose",
+  "latex.build.executable": "pdflatex",
+  "latex.build.args": [
+    "-interaction=nonstopmode",
+    "%f"
+  ],
+  "latex.build.onSave": true,
+  "latex.rootDirectory": ".",
+  "latex.lint.onChange": false,
+  "latex.lint.onSave": true,
+  "latex.forwardSearch.executable": "zathura",
+  "latex.forwardSearch.args": [
+    "--synctex-forward",
+    "%l:1:%f",
+    "%p"
+  ],
   "solargraph.transport": "socket",
   "solargraph.promptDownload": true,
   "solargraph.externalServer": {
