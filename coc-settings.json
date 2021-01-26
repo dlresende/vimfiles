@@ -20,9 +20,13 @@
   },
   "texlab.path": "texlab",
   "texlab.trace.server": "verbose",
-  "latex.build.executable": "pdflatex",
+  "latex.build.executable": "latexmk",
   "latex.build.args": [
+    "-pdf",
     "-interaction=nonstopmode",
+    "-synctex=1",
+    "-pv",
+    "-f",
     "%f"
   ],
   "latex.build.onSave": true,
