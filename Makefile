@@ -22,7 +22,7 @@ check:
 	@echo "...done"
 
 .PHONY: install		# Check dependencies, setup config and install plugins
-install: check configure update
+install: check configure update cleanup
 
 .PHONY: configure	# Point Vim/NeoVim to this config
 configure:
@@ -31,6 +31,12 @@ configure:
 	mkdir -p "$(XDG_CONFIG_HOME)"
 	ln -snf "$(HOME)/.vim" "$(XDG_CONFIG_HOME)/nvim"
 	ln -snf "$(HOME)/.vim/vimrc" "$(XDG_CONFIG_HOME)/nvim/init.vim"
+	@echo "...done"
+
+.PHONY: cleanup		# Clean-up plugins
+cleanup:
+	@echo "Updating plugings..."
+	@nvim --headless +'PlugClean!' +'qall!'
 	@echo "...done"
 
 .PHONY: update		# Update plugins
