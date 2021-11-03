@@ -1,2 +1,2 @@
 " fuzzy search
-nnoremap <leader>f :CtrlPCurWD<cr>
+nnoremap <leader>f :CtrlP<cr>
