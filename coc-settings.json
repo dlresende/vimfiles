@@ -39,12 +39,9 @@
     "%l:1:%f",
     "%p"
   ],
-  "solargraph.transport": "socket",
+  "solargraph.transport": "stdio",
   "solargraph.promptDownload": true,
-  "solargraph.externalServer": {
-    "host": "localhost",
-    "port": 7658
-  },
+  "solargraph.externalServer": {},
   "solargraph.commandPath": "solargraph",
   "solargraph.useBundler": true,
   "solargraph.bundlerPath": "bundle",
@@ -59,5 +56,6 @@
   "solargraph.rename": true,
   "solargraph.references": true,
   "solargraph.folding": true,
+  "solargraph.trace.server": "off",
   "solargraph.logLevel": "debug"
 }
