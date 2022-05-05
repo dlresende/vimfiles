@@ -5,7 +5,6 @@ help:
 	@sed -n -E "s/^\.PHONY:[[:space:]]+(.*)$$/\1/p" Makefile
 
 dependencies = nvim
-dependencies += python2
 dependencies += python3
 dependencies += ctags # tagbar
 dependencies += node yarn # coc.nvim markdown-preview.nvim
