@@ -8,6 +8,7 @@ dependencies = nvim
 dependencies += python3
 dependencies += ctags # tagbar
 dependencies += node yarn # coc.nvim markdown-preview.nvim
+dependencies += gopls
 is_in_path = \
 	if ! command -v "$(1)" > /dev/null; then \
 		echo "$(1) required, but not found in PATH."; \
