@@ -20,25 +20,6 @@
   },
   "texlab.path": "texlab",
   "texlab.trace.server": "verbose",
-  "latex.build.executable": "latexmk",
-  "latex.build.args": [
-    "-pdf",
-    "-interaction=nonstopmode",
-    "-synctex=1",
-    "-pv",
-    "-f",
-    "%f"
-  ],
-  "latex.build.onSave": true,
-  "latex.rootDirectory": ".",
-  "latex.lint.onChange": false,
-  "latex.lint.onSave": true,
-  "latex.forwardSearch.executable": "zathura",
-  "latex.forwardSearch.args": [
-    "--synctex-forward",
-    "%l:1:%f",
-    "%p"
-  ],
   "solargraph.transport": "stdio",
   "solargraph.promptDownload": true,
   "solargraph.externalServer": {},
