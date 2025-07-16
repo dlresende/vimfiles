@@ -15,9 +15,6 @@
       "ignoredRootPaths": ["~"]
     }
   },
-  "diagnostic-languageserver.filetypes": {
-    "sh": "shellcheck"
-  },
   "solargraph.transport": "socket",
   "solargraph.promptDownload": true,
   "solargraph.externalServer": {},
