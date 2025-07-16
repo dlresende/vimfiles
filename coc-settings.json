@@ -18,8 +18,6 @@
   "diagnostic-languageserver.filetypes": {
     "sh": "shellcheck"
   },
-  "texlab.path": "texlab",
-  "texlab.trace.server": "verbose",
   "solargraph.transport": "socket",
   "solargraph.promptDownload": true,
   "solargraph.externalServer": {},
