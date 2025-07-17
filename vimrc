@@ -1,5 +1,5 @@
 runtime! config/plug.vim " should come first
-runtime! config/plugin/*.vim
+runtime! config/plugin/*
 
 runtime! config/basic.vim
 
