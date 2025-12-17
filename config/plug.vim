@@ -6,6 +6,7 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.vim/plugged')
+  Plug 'neoclide/coc.nvim', {'do': 'NODE_OPTIONS=--no-deprecation yarn --silent --frozen-lockfile --ignore-peer-deps --ignore-engines install --frozen-lockfile ', 'branch': 'release'}
   Plug 'ctrlpvim/ctrlp.vim'
   Plug 'fannheyward/coc-pyright', {'do': 'NODE_OPTIONS=--no-deprecation yarn --silent --frozen-lockfile --ignore-peer-deps --ignore-engines install --frozen-lockfile '}
   Plug 'godlygeek/tabular'
@@ -13,7 +14,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npx --yes yarn install' }
   Plug 'lifepillar/vim-solarized8'
   Plug 'mg979/vim-visual-multi', {'branch': 'master'}
-  Plug 'neoclide/coc.nvim', {'do': 'NODE_OPTIONS=--no-deprecation yarn --silent --frozen-lockfile --ignore-peer-deps --ignore-engines install --frozen-lockfile ', 'branch': 'release'}
   Plug 'neoclide/coc-java', {'do': 'NODE_OPTIONS=--no-deprecation yarn --silent --frozen-lockfile --ignore-peer-deps --ignore-engines install --frozen-lockfile '}
   Plug 'neoclide/coc-json', {'do': 'NODE_OPTIONS=--no-deprecation yarn --silent --frozen-lockfile --ignore-peer-deps --ignore-engines install --frozen-lockfile ', 'tag': '*'}
   Plug 'neoclide/coc-solargraph', {'do': 'NODE_OPTIONS=--no-deprecation yarn --silent --frozen-lockfile --ignore-peer-deps --ignore-engines install --frozen-lockfile ', 'tag': '*'}
