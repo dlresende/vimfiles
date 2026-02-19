@@ -14,7 +14,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npx --yes yarn install' }
   Plug 'lifepillar/vim-solarized8'
   Plug 'mg979/vim-visual-multi', {'branch': 'master'}
-  Plug 'neoclide/coc-java', {'do': 'NODE_OPTIONS=--no-deprecation yarn --silent --frozen-lockfile --ignore-peer-deps --ignore-engines install --frozen-lockfile '}
+  Plug 'neoclide/coc-java', {'do': 'npm install --no-audit --no-fund'}
   " Plug 'neoclide/coc-json', {'do': 'NODE_OPTIONS=--no-deprecation yarn --silent --frozen-lockfile --ignore-peer-deps --ignore-engines install --frozen-lockfile ', 'tag': '*'}
   Plug 'neoclide/coc-solargraph', {'do': 'NODE_OPTIONS=--no-deprecation yarn --silent --frozen-lockfile --ignore-peer-deps --ignore-engines install --frozen-lockfile ', 'tag': '*'}
   " Plug 'neoclide/coc-tsserver', {'do': 'NODE_OPTIONS=--no-deprecation yarn --silent --frozen-lockfile --ignore-peer-deps --ignore-engines install --frozen-lockfile ', 'tag': '*'}
