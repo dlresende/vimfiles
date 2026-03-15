@@ -40,5 +40,9 @@ vnoremap > >gv
 " make Y consistent with C and D - see `:help Y`
 nnoremap Y y$
 
-" copy to system clipboard in Visual mode
-vmap Y "+y
+" Copy to system clipboard in Visual mode, with fallback
+if has('clipboard')
+  vnoremap Y "+y
+else
+  vnoremap Y :silent w !xsel --clipboard --input<CR>
+endif
