@@ -10,7 +10,7 @@ nnoremap <silent> <leader>z :bp<CR>
 " move to next buffer
 nnoremap <silent> <leader>x :bn<CR>
 
-" move to previous window
+" move to previous window (overrides CtrlP's default <C-p> trigger; CtrlP is mapped to <leader>f)
 nmap <silent> <C-p> :wincmd p<CR>
 
 " make windows the same size

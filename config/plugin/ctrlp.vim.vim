@@ -1,5 +1,8 @@
 " Check :help ctrlp-options for other options.
 
+" Open CtrlP with <leader>f (overriding default <C-p>)
+let g:ctrlp_map = '<leader>f'
+
 " Set its local working directory:
 " 'c' - the directory of the current file.
 " 'a' - the directory of the current file, unless it is a subdirectory of the cwd
