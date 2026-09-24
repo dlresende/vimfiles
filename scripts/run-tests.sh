@@ -40,7 +40,7 @@ case "$EDITOR_NAME" in
     check_vim_errors
 
     echo "Checking Neovim health..."
-    TMUX="" "$EDITOR_BIN" --headless -c "checkhealth" -c "w! $HEALTH_LOG" -c "qall!" >/dev/null 2>&1 || true
+    TERM="xterm-256color" TMUX="" "$EDITOR_BIN" --headless -c "checkhealth" -c "w! $HEALTH_LOG" -c "qall!" >/dev/null 2>&1 || true
     if [ -f "$HEALTH_LOG" ] && grep -E 'ERROR' "$HEALTH_LOG" >/dev/null 2>&1; then
       echo "Errors detected in :checkhealth output:" >&2
       grep -E 'ERROR' "$HEALTH_LOG" >&2
