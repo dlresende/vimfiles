@@ -82,7 +82,7 @@ To verify the setup locally:
 ```sh
 make check    # verify required tools are present on PATH
 make install  # symlink configuration, install/update plugins
-make test     # headless checkhealth, fails on any ERROR
+make test     # headless smoke tests and checkhealth validation
 ```
 
 CI (`.github/workflows/ci.yml`) runs the same validation on pull requests.

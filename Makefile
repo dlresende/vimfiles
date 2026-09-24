@@ -45,18 +45,9 @@ update:
 	@nvim --headless +'PlugUpdate' +'qall!'
 	@echo "...done"
 
-vim_log=$(shell mktemp)
-vim_errors=$(shell mktemp)
-
-fail_if_vim_error = \
-	nvim -V1$(1) -i NONE --headless +'checkhealth nvim' +'qall!' ; \
-	cat $(1) ; \
-	grep -e ERROR $(1) > $(2) ; \
-	[ -s $(2) ] && exit 1 || exit 0
-
 .PHONY: test		# Test configuration
 test:
-	@$(call fail_if_vim_error,$(vim_log),$(vim_errors))
+	@scripts/run-tests.sh nvim
 
 .PHONY: docs    # Export cheat sheet
 docs:
