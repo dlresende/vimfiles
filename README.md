@@ -53,3 +53,37 @@ To export or view the cheat sheet locally, run:
 ```sh
 make docs
 ```
+
+---
+
+## Layout
+
+`vimrc` acts as a dispatcher that sources configuration in the following order (note that **load order is significant**):
+
+1. `config/plug.vim` — plugin declarations (vim-plug). Must come first.
+2. `config/plugin/*` — per-plugin configurations.
+3. `config/basic.vim` — general editor settings.
+4. `config/bindings.vim` — global key mappings.
+5. `config/bindings/*.vim` — per-plugin key mappings.
+
+Because `config/bindings.vim` is sourced *after* plugins load, a mapping defined there silently overrides a plugin's own default mapping.
+
+Other entry points:
+- `coc-settings.json` — language server configurations
+- `ftplugin/*.vim` — filetype-specific settings
+- `Makefile` — setup, dependency checks, test targets, and doc generation
+
+---
+
+## Testing
+
+To verify the setup locally:
+
+```sh
+make check    # verify required tools are present on PATH
+make install  # symlink configuration, install/update plugins
+make test     # headless checkhealth, fails on any ERROR
+```
+
+CI (`.github/workflows/ci.yml`) runs the same validation on pull requests.
+
