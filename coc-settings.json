@@ -2,18 +2,48 @@
   "languageserver": {
     "golang": {
       "command": "gopls",
-      "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
-      "filetypes": ["go"],
-      "initializationOptions": { "usePlaceholders": true }
+      "rootPatterns": [
+        "go.mod",
+        ".vim/",
+        ".git/",
+        ".hg/"
+      ],
+      "filetypes": [
+        "go"
+      ],
+      "initializationOptions": {
+        "usePlaceholders": true
+      }
     },
     "bash": {
       "command": "bash-language-server",
-      "args": ["start"],
-      "filetypes": ["sh", "bash"],
-      "ignoredRootPaths": ["~"]
+      "args": [
+        "start"
+      ],
+      "filetypes": [
+        "sh",
+        "bash"
+      ],
+      "ignoredRootPaths": [
+        "~"
+      ]
+    },
+    "ruff": {
+      "command": "ruff",
+      "args": [
+        "server"
+      ],
+      "filetypes": [
+        "python"
+      ],
+      "rootPatterns": [
+        "pyproject.toml",
+        "ruff.toml",
+        ".ruff.toml",
+        ".git/"
+      ]
     }
   },
-
   "java.enabled": true,
   "java.jdt.ls.java.home": null,
   "java.jdt.ls.directory": null,
@@ -47,7 +77,12 @@
   "java.import.gradle.jvmArguments": null,
   "java.import.gradle.user.home": null,
   "java.import.gradle.annotationProcessing.enabled": true,
-  "java.import.exclusions": ["**/node_modules/**", "**/.metadata/**", "**/archetype-resources/**", "**/META-INF/maven/**"],
+  "java.import.exclusions": [
+    "**/node_modules/**",
+    "**/.metadata/**",
+    "**/archetype-resources/**",
+    "**/META-INF/maven/**"
+  ],
   "java.import.generatesMetadataFilesAtProjectRoot": false,
   "java.maven.downloadSources": false,
   "java.eclipse.downloadSources": false,
@@ -55,8 +90,13 @@
   "java.server.launchMode": "Standard",
   "java.project.importOnFirstTimeStartup": "automatic",
   "java.project.importHint": true,
-  "java.project.resourceFilters": ["node_modules", "\\.git"],
-  "java.project.referencedLibraries": ["lib/**/*.jar"],
+  "java.project.resourceFilters": [
+    "node_modules",
+    "\\.git"
+  ],
+  "java.project.referencedLibraries": [
+    "lib/**/*.jar"
+  ],
   "java.project.outputPath": "",
   "java.project.sourcePaths": [],
   "java.project.encoding": "ignore",
@@ -72,9 +112,33 @@
   "java.completion.engine": "ecj",
   "java.completion.maxResults": 0,
   "java.completion.guessMethodArguments": true,
-  "java.completion.favoriteStaticMembers": ["org.junit.Assert.*", "org.junit.Assume.*", "org.junit.jupiter.api.Assertions.*", "org.junit.jupiter.api.Assumptions.*", "org.junit.jupiter.api.DynamicContainer.*", "org.junit.jupiter.api.DynamicTest.*", "org.mockito.Mockito.*", "org.mockito.ArgumentMatchers.*", "org.mockito.Answers.*"],
-  "java.completion.filteredTypes": ["java.awt.*", "com.sun.*", "sun.*", "jdk.*", "org.graalvm.*", "io.micrometer.shaded.*"],
-  "java.completion.importOrder": ["#", "java", "javax", "org", "com", ""],
+  "java.completion.favoriteStaticMembers": [
+    "org.junit.Assert.*",
+    "org.junit.Assume.*",
+    "org.junit.jupiter.api.Assertions.*",
+    "org.junit.jupiter.api.Assumptions.*",
+    "org.junit.jupiter.api.DynamicContainer.*",
+    "org.junit.jupiter.api.DynamicTest.*",
+    "org.mockito.Mockito.*",
+    "org.mockito.ArgumentMatchers.*",
+    "org.mockito.Answers.*"
+  ],
+  "java.completion.filteredTypes": [
+    "java.awt.*",
+    "com.sun.*",
+    "sun.*",
+    "jdk.*",
+    "org.graalvm.*",
+    "io.micrometer.shaded.*"
+  ],
+  "java.completion.importOrder": [
+    "#",
+    "java",
+    "javax",
+    "org",
+    "com",
+    ""
+  ],
   "java.completion.postfix.enabled": true,
   "java.completion.matchCase": "auto",
   "java.format.enabled": true,
@@ -84,7 +148,9 @@
   "java.format.onType.enabled": true,
   "java.saveActions.organizeImports": false,
   "java.saveActions.cleanup": true,
-  "java.cleanup.actions": ["renameFileToType"],
+  "java.cleanup.actions": [
+    "renameFileToType"
+  ],
   "java.foldingRange.enabled": true,
   "java.selectionRange.enabled": true,
   "java.progressReports.enabled": true,
@@ -117,12 +183,23 @@
   "java.imports.gradle.wrapper.checksums": [],
   "java.refactoring.extract.interface.replace": true,
   "java.compile.nullAnalysis.mode": "interactive",
-  "java.compile.nullAnalysis.nonnull": ["javax.annotation.Nonnull", "org.eclipse.jdt.annotation.NonNull", "org.springframework.lang.NonNull"],
-  "java.compile.nullAnalysis.nullable": ["javax.annotation.Nullable", "org.eclipse.jdt.annotation.Nullable", "org.springframework.lang.Nullable"],
-  "java.compile.nullAnalysis.nonnullbydefault": ["javax.annotation.ParametersAreNonnullByDefault", "org.eclipse.jdt.annotation.NonNullByDefault", "org.springframework.lang.NonNullApi"],
+  "java.compile.nullAnalysis.nonnull": [
+    "javax.annotation.Nonnull",
+    "org.eclipse.jdt.annotation.NonNull",
+    "org.springframework.lang.NonNull"
+  ],
+  "java.compile.nullAnalysis.nullable": [
+    "javax.annotation.Nullable",
+    "org.eclipse.jdt.annotation.Nullable",
+    "org.springframework.lang.Nullable"
+  ],
+  "java.compile.nullAnalysis.nonnullbydefault": [
+    "javax.annotation.ParametersAreNonnullByDefault",
+    "org.eclipse.jdt.annotation.NonNullByDefault",
+    "org.springframework.lang.NonNullApi"
+  ],
   "java.sharedIndexes.enabled": "auto",
   "java.sharedIndexes.location": "",
-
   "solargraph.transport": "socket",
   "solargraph.promptDownload": true,
   "solargraph.externalServer": {},
@@ -141,5 +218,115 @@
   "solargraph.references": true,
   "solargraph.folding": true,
   "solargraph.trace.server": "off",
-  "solargraph.logLevel": "debug"
+  "solargraph.logLevel": "debug",
+  "pyright.enable": true,
+  "pyright.inlayHints.functionReturnTypes": true,
+  "pyright.inlayHints.variableTypes": true,
+  "pyright.inlayHints.parameterTypes": true,
+  "python.analysis.indexing": true,
+  "python.analysis.extraPaths": [],
+  "python.analysis.typeshedPaths": [],
+  "python.analysis.autoImportCompletions": true,
+  "python.analysis.autoSearchPaths": true,
+  "python.analysis.stubPath": "typings",
+  "python.analysis.diagnosticMode": "openFilesOnly",
+  "python.analysis.include": [],
+  "python.analysis.exclude": [],
+  "python.analysis.ignore": [],
+  "python.analysis.diagnosticSeverityOverrides": {},
+  "python.analysis.logLevel": "Information",
+  "python.analysis.typeCheckingMode": "standard",
+  "python.analysis.useLibraryCodeForTypes": true,
+  "python.linting.enabled": true,
+  "python.linting.flake8Args": [],
+  "python.linting.flake8CategorySeverity.E": "Error",
+  "python.linting.flake8CategorySeverity.F": "Error",
+  "python.linting.flake8CategorySeverity.W": "Warning",
+  "python.linting.flake8Enabled": false,
+  "python.linting.flake8Stdin": false,
+  "python.linting.flake8Path": "flake8",
+  "python.linting.ignorePatterns": [
+    ".vscode/*.py",
+    "**/site-packages/**/*.py"
+  ],
+  "python.linting.lintOnSave": true,
+  "python.linting.maxNumberOfProblems": 100,
+  "python.linting.banditArgs": [],
+  "python.linting.banditEnabled": false,
+  "python.linting.banditPath": "bandit",
+  "python.linting.mypyArgs": [
+    "--no-pretty",
+    "--ignore-missing-imports",
+    "--follow-imports=silent",
+    "--show-column-numbers"
+  ],
+  "python.linting.mypyCategorySeverity.error": "Error",
+  "python.linting.mypyCategorySeverity.note": "Information",
+  "python.linting.mypyEnabled": false,
+  "python.linting.mypyPath": "mypy",
+  "python.linting.pytypeEnabled": false,
+  "python.linting.pytypePath": "pytype",
+  "python.linting.pytypeArgs": [],
+  "python.linting.pycodestyleArgs": [],
+  "python.linting.pycodestyleCategorySeverity.E": "Error",
+  "python.linting.pycodestyleCategorySeverity.W": "Warning",
+  "python.linting.pycodestyleEnabled": false,
+  "python.linting.pycodestylePath": "pycodestyle",
+  "python.linting.prospectorArgs": [],
+  "python.linting.prospectorEnabled": false,
+  "python.linting.prospectorPath": "prospector",
+  "python.linting.pydocstyleArgs": [],
+  "python.linting.pydocstyleEnabled": false,
+  "python.linting.pydocstylePath": "pydocstyle",
+  "python.linting.pyflakesEnabled": false,
+  "python.linting.pyflakesPath": "pyflakes",
+  "python.linting.ruffEnabled": false,
+  "python.linting.ruffStdin": true,
+  "python.linting.ruffPath": "ruff",
+  "python.linting.ruffArgs": [],
+  "python.linting.pylamaArgs": [],
+  "python.linting.pylamaEnabled": false,
+  "python.linting.pylamaPath": "pylama",
+  "python.linting.pylintArgs": [],
+  "python.linting.pylintCategorySeverity.convention": "Information",
+  "python.linting.pylintCategorySeverity.error": "Error",
+  "python.linting.pylintCategorySeverity.fatal": "Error",
+  "python.linting.pylintCategorySeverity.refactor": "Hint",
+  "python.linting.pylintCategorySeverity.warning": "Warning",
+  "python.linting.pylintStdin": false,
+  "python.linting.pylintEnabled": false,
+  "python.linting.pylintPath": "pylint",
+  "python.pythonPath": "python",
+  "python.venvPath": "",
+  "python.formatting.blackArgs": [],
+  "python.formatting.blackPath": "black",
+  "python.formatting.ruffArgs": [],
+  "python.formatting.ruffPath": "ruff",
+  "python.formatting.pyinkArgs": [],
+  "python.formatting.pyinkPath": "pyink",
+  "python.formatting.darkerArgs": [],
+  "python.formatting.darkerPath": "darker",
+  "python.formatting.yapfArgs": [],
+  "python.formatting.yapfPath": "yapf",
+  "python.formatting.autopep8Args": [],
+  "python.formatting.autopep8Path": "autopep8",
+  "python.formatting.blackdPath": "blackd",
+  "python.formatting.blackdHTTPURL": "",
+  "python.formatting.blackdHTTPHeaders": {},
+  "python.formatting.provider": "autopep8",
+  "python.sortImports.path": "isort",
+  "python.sortImports.args": [],
+  "pyright.disableCompletion": false,
+  "pyright.disableDiagnostics": false,
+  "pyright.disableDocumentation": false,
+  "pyright.disableProgressNotifications": false,
+  "pyright.disableTaggedHints": false,
+  "pyright.completion.importSupport": true,
+  "pyright.completion.snippetSupport": true,
+  "pyright.organizeimports.provider": "pyright",
+  "pyright.server": "",
+  "pyright.testing.provider": "unittest",
+  "pyright.testing.pytestArgs": [],
+  "pyright.testing.unittestArgs": [],
+  "pyright.trace.server": "off"
 }
