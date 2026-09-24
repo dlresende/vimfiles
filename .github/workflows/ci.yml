@@ -9,6 +9,10 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        editor: [nvim, vim]
     steps:
       - name: Checkout code
         uses: actions/checkout@v7
@@ -27,7 +31,7 @@ jobs:
       - name: Install system dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y neovim universal-ctags
+          sudo apt-get install -y neovim vim-nox universal-ctags
           npm install -g yarn
 
       - name: Install gopls
@@ -41,4 +45,4 @@ jobs:
           make install
 
       - name: Run tests
-        run: make test
+        run: make test-${{ matrix.editor }}

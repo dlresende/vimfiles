@@ -41,7 +41,11 @@ case "$EDITOR_NAME" in
 
     echo "Checking Neovim health..."
     TERM="xterm-256color" TMUX="" "$EDITOR_BIN" --headless -c "checkhealth" -c "w! $HEALTH_LOG" -c "qall!" >/dev/null 2>&1 || true
-    if [ -f "$HEALTH_LOG" ] && grep -E 'ERROR' "$HEALTH_LOG" >/dev/null 2>&1; then
+    if [ ! -s "$HEALTH_LOG" ]; then
+      echo "checkhealth produced no output - health could not be verified" >&2
+      exit 1
+    fi
+    if grep -E 'ERROR' "$HEALTH_LOG" >/dev/null 2>&1; then
       echo "Errors detected in :checkhealth output:" >&2
       grep -E 'ERROR' "$HEALTH_LOG" >&2
       exit 1
