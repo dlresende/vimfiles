@@ -80,10 +80,12 @@ Other entry points:
 To verify the setup locally:
 
 ```sh
-make check    # verify required tools are present on PATH
-make install  # symlink configuration, install/update plugins
-make test     # headless smoke tests and checkhealth validation
+make check      # verify required tools are present on PATH
+make install    # symlink configuration, install/update plugins
+make test-nvim  # run smoke tests and checkhealth in Neovim
+make test-vim   # run smoke tests in Vim
+make test       # run all tests
 ```
 
-CI (`.github/workflows/ci.yml`) runs the same validation on pull requests.
+CI (`.github/workflows/ci.yml`) runs the Neovim and Vim test suites in parallel on pull requests.
 

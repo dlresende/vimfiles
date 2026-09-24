@@ -45,9 +45,16 @@ update:
 	@nvim --headless +'PlugUpdate' +'qall!'
 	@echo "...done"
 
-.PHONY: test		# Test configuration
-test:
+.PHONY: test-nvim	# Run tests with Neovim
+test-nvim:
 	@scripts/run-tests.sh nvim
+
+.PHONY: test-vim	# Run tests with Vim
+test-vim:
+	@scripts/run-tests.sh vim
+
+.PHONY: test		# Test configuration with Neovim and Vim
+test: test-nvim test-vim
 
 .PHONY: docs    # Export cheat sheet
 docs:
