@@ -31,8 +31,9 @@ jobs:
       - name: Install system dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y neovim vim-nox universal-ctags
-          npm install -g yarn
+          sudo apt-get install -y neovim vim-nox universal-ctags xsel ruby
+          npm install -g yarn bash-language-server
+          sudo gem install solargraph
 
       - name: Install gopls
         run: |
