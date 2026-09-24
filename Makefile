@@ -11,6 +11,7 @@ dependencies += node yarn # coc.nvim markdown-preview.nvim
 dependencies += gopls
 dependencies += bash-language-server
 dependencies += solargraph
+dependencies += ruff
 
 ifeq ($(shell uname),Linux)
 dependencies += xsel

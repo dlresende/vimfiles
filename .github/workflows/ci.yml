@@ -34,6 +34,7 @@ jobs:
           sudo apt-get install -y neovim vim-nox universal-ctags xsel ruby
           npm install -g yarn bash-language-server
           sudo gem install solargraph
+          pipx install ruff
 
       - name: Install gopls
         run: |
