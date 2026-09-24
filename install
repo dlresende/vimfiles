@@ -11,7 +11,7 @@ if [[ ! -d "$HOME/.vim" ]] ; then
 fi
 
 ( cd "$HOME/.vim" || exit 1
-  git pull
+  git pull origin HEAD
   make install
 )
 
