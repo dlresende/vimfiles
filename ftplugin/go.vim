@@ -1,2 +1,2 @@
-set foldmethod=syntax
-set nofoldenable
+setlocal foldmethod=syntax
+setlocal nofoldenable

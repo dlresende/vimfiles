@@ -1,2 +1,2 @@
-set foldmethod=indent
-set nofoldenable
+setlocal foldmethod=indent
+setlocal nofoldenable
