@@ -17,7 +17,7 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y shellcheck
-          pipx install vint
+          pipx install vim-vint
 
       - name: Run lint
         run: make lint
@@ -50,7 +50,7 @@ jobs:
           npm install -g yarn bash-language-server
           sudo gem install solargraph
           pipx install ruff
-          pipx install vint
+          pipx install vim-vint
 
       - name: Install gopls
         run: |
