@@ -22,7 +22,10 @@ function! s:show_documentation()
 endfunction
 
 " highlight the symbol and its references when holding the cursor
-autocmd CursorHold * silent call CocActionAsync('highlight')
+augroup coc_highlight
+  autocmd!
+  autocmd CursorHold * silent call CocActionAsync('highlight')
+augroup END
 
 " rename symbol
 nmap <leader>rn <Plug>(coc-rename)
