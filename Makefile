@@ -12,6 +12,7 @@ dependencies += gopls
 dependencies += bash-language-server
 dependencies += solargraph
 dependencies += ruff
+dependencies += shellcheck
 
 ifeq ($(shell uname),Linux)
 dependencies += xsel
@@ -62,6 +63,10 @@ test-vim:
 
 .PHONY: test		# Test configuration with Neovim and Vim
 test: test-nvim test-vim
+
+.PHONY: lint		# Run linters over vimscript, shell scripts, and JSON configs
+lint:
+	@scripts/run-lint.sh
 
 .PHONY: docs    # Export cheat sheet
 docs:
