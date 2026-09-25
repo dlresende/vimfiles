@@ -12,7 +12,6 @@ dependencies += gopls
 dependencies += bash-language-server
 dependencies += solargraph
 dependencies += ruff
-dependencies += vint
 dependencies += shellcheck
 
 ifeq ($(shell uname),Linux)

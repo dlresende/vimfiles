@@ -16,9 +16,7 @@ jobs:
       - name: Install linter dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y shellcheck
-          pipx install vim-vint
-          pipx inject vim-vint setuptools
+          sudo apt-get install -y shellcheck vim-nox neovim
 
       - name: Run lint
         run: make lint
@@ -51,8 +49,6 @@ jobs:
           npm install -g yarn bash-language-server
           sudo gem install solargraph
           pipx install ruff
-          pipx install vim-vint
-          pipx inject vim-vint setuptools
 
       - name: Install gopls
         run: |
