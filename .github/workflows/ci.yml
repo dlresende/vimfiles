@@ -7,6 +7,21 @@ on:
   workflow_dispatch:
 
 jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v7
+
+      - name: Install linter dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y shellcheck
+          pipx install vint
+
+      - name: Run lint
+        run: make lint
+
   test:
     runs-on: ubuntu-latest
     strategy:
@@ -31,10 +46,11 @@ jobs:
       - name: Install system dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y neovim vim-nox universal-ctags xsel ruby
+          sudo apt-get install -y neovim vim-nox universal-ctags xsel ruby shellcheck
           npm install -g yarn bash-language-server
           sudo gem install solargraph
           pipx install ruff
+          pipx install vint
 
       - name: Install gopls
         run: |
