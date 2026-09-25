@@ -1,5 +1,5 @@
 " this line MUST come before any <leader> mappings
-let mapleader=","
+let mapleader=','
 
 " save by pressing <enter>
 nnoremap <silent> <cr> :w<cr>
