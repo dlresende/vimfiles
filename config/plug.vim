@@ -10,7 +10,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'ctrlpvim/ctrlp.vim'
   Plug 'fannheyward/coc-pyright', {'do': 'NODE_OPTIONS=--no-deprecation yarn --silent --frozen-lockfile --ignore-peer-deps --ignore-engines install --frozen-lockfile '}
   Plug 'godlygeek/tabular'
-  Plug 'iamcco/coc-diagnostic', {'do': 'NODE_OPTIONS=--no-deprecation yarn --silent --frozen-lockfile --ignore-peer-deps --ignore-engines install --frozen-lockfile '}
   Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npx --yes yarn install' }
   Plug 'lifepillar/vim-solarized8'
   Plug 'mg979/vim-visual-multi', {'branch': 'master'}
