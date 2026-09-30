@@ -1,5 +1,3 @@
-[![CI](https://github.com/dlresende/vimfiles/actions/workflows/ci.yml/badge.svg)](https://github.com/dlresende/vimfiles/actions/workflows/ci.yml)
-
 # Diego's Vim / Neovim Configuration
 
 A portable, modular Vim and Neovim configuration optimized for macOS and Linux.
