@@ -64,6 +64,10 @@ test-vim:
 .PHONY: test		# Test configuration with Neovim and Vim
 test: test-nvim test-vim
 
+.PHONY: test-java	# Check coc-java initialization with the current settings
+test-java:
+	@bash scripts/run-java-test.sh
+
 .PHONY: lint		# Run linters over vimscript, shell scripts, and JSON configs
 lint:
 	@scripts/run-lint.sh

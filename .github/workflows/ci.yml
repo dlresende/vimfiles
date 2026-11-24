@@ -35,7 +35,7 @@ jobs:
         uses: actions/setup-java@v6.2.0
         with:
           distribution: 'temurin'
-          java-version: '11'
+          java-version: '25'
 
       - name: Set up Node.js
         uses: actions/setup-node@v7.1.0
@@ -62,3 +62,8 @@ jobs:
 
       - name: Run tests
         run: make test-${{ matrix.editor }}
+
+      - name: Check Java language server initialization
+        if: matrix.editor == 'nvim'
+        run: make test-java
+        timeout-minutes: 5
