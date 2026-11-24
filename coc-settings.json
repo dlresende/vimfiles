@@ -45,7 +45,7 @@
     }
   },
   "java.enabled": true,
-  "java.jdt.ls.java.home": null,
+  "java.jdt.ls.java.home": "${env:JAVA_HOME}",
   "java.jdt.ls.directory": null,
   "java.jdt.ls.statusIcons": null,
   "java.jdt.ls.bundles": [],

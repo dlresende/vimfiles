@@ -27,6 +27,20 @@ Optional language servers (configured in `coc-settings.json`): `solargraph` (Rub
 
 ## Installation
 
+### Java language support
+
+Export `JAVA_HOME` from your shell configuration before starting Vim or Neovim.
+It must point to a JDK compatible with the server bundled with coc-java (Java 25
+for the currently tested bundle). CoC expands `${env:JAVA_HOME}` in
+`coc-settings.json`, so JDK discovery belongs in your shell configuration rather
+than in machine-specific editor settings. An unset `JAVA_HOME` leaves the
+placeholder unresolved and prevents Java support from starting.
+
+Check `:echo $JAVA_HOME` in the editor, run `:CocRestart`, and open a Java file.
+Use `:CocCommand java.open.clientLog` to confirm the JDK used to launch the server.
+Projects targeting another Java version can use `java.configuration.runtimes`;
+the server's launch JDK and the project's JDK are separate settings.
+
 ### Automated
 ```sh
 curl https://vimfiles.diegolemos.net/install | bash
